@@ -1,11 +1,16 @@
 from datetime import date
 import random
 from world import new_world
+from scheduling import ensure_schedule_schema, generate_season_schedules
+from history import ensure_history_schema
 
 def create_game(schools, player_name, seed=None):
     seed = seed if seed is not None else random.randint(1, 2_000_000_000)
     rng = random.Random(seed)
     world = new_world(schools, seed)
+    ensure_schedule_schema(world)
+    ensure_history_schema(world)
+    generate_season_schedules(world, "2026-2027", seed)
 
     # Career mode starts with a lower-prestige school. The player earns access to larger jobs.
     choices = [sid for sid,s in world["schools"].items() if 25 <= s["prestige"] <= 48]
@@ -20,7 +25,7 @@ def create_game(schools, player_name, seed=None):
     world["ad_people"][aid]["reputation"] = 30
 
     return {
-        "version": 5,
+        "version": 10,
         "mode": "career",
         "rng_seed": seed,
         "player": {"name": player_name, "title": "Director of Athletics"},

@@ -1,8 +1,8 @@
 [
   {
     "name": "Abilene Christian",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "United Athletic",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -10,7 +10,8 @@
     "budget": 8000000,
     "id": "sch_abilene_christian",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "United Athletic"
   },
   {
     "name": "Air Force",
@@ -23,12 +24,13 @@
     "budget": 35000000,
     "id": "sch_air_force",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "Akron",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -36,7 +38,8 @@
     "budget": 8000000,
     "id": "sch_akron",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Alabama",
@@ -49,12 +52,13 @@
     "budget": 35000000,
     "id": "sch_alabama",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Alabama A&M",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -62,12 +66,13 @@
     "budget": 8000000,
     "id": "sch_alabama_a_m",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Alabama State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -75,11 +80,12 @@
     "budget": 8000000,
     "id": "sch_alabama_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Albany",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -88,12 +94,13 @@
     "budget": 8000000,
     "id": "sch_albany",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Alcorn State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -101,12 +108,13 @@
     "budget": 8000000,
     "id": "sch_alcorn_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "American",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -114,7 +122,8 @@
     "budget": 8000000,
     "id": "sch_american",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Patriot League"
   },
   {
     "name": "Appalachian State",
@@ -127,7 +136,8 @@
     "budget": 35000000,
     "id": "sch_appalachian_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Arizona",
@@ -140,7 +150,8 @@
     "budget": 35000000,
     "id": "sch_arizona",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Arizona State",
@@ -153,7 +164,8 @@
     "budget": 35000000,
     "id": "sch_arizona_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Arkansas",
@@ -166,12 +178,13 @@
     "budget": 35000000,
     "id": "sch_arkansas",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Arkansas Pine Bluff",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -179,12 +192,13 @@
     "budget": 8000000,
     "id": "sch_arkansas_pine_bluff",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Army",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -192,7 +206,8 @@
     "budget": 8000000,
     "id": "sch_army",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent"
   },
   {
     "name": "Auburn",
@@ -205,25 +220,13 @@
     "budget": 35000000,
     "id": "sch_auburn",
     "state": "",
-    "city": ""
-  },
-  {
-    "name": "Augustana",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
-    "prestige": 50,
-    "academics": 70,
-    "facilities": 50,
-    "fan_support": 50,
-    "budget": 8000000,
-    "id": "sch_augustana",
-    "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Austin Peay",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "United Athletic",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -231,7 +234,8 @@
     "budget": 8000000,
     "id": "sch_austin_peay",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "United Athletic"
   },
   {
     "name": "BYU",
@@ -244,12 +248,13 @@
     "budget": 35000000,
     "id": "sch_byu",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Ball State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -257,7 +262,8 @@
     "budget": 8000000,
     "id": "sch_ball_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Baylor",
@@ -270,11 +276,12 @@
     "budget": 35000000,
     "id": "sch_baylor",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Bellarmine",
-    "conference": "Independent / Other D-I",
+    "conference": "ASUN",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -283,11 +290,12 @@
     "budget": 8000000,
     "id": "sch_bellarmine",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Belmont",
-    "conference": "Independent / Other D-I",
+    "conference": "Missouri Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -296,12 +304,13 @@
     "budget": 8000000,
     "id": "sch_belmont",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Bethune Cookman",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -309,11 +318,12 @@
     "budget": 8000000,
     "id": "sch_bethune_cookman",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Binghamton",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -322,11 +332,12 @@
     "budget": 8000000,
     "id": "sch_binghamton",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Boise State",
-    "conference": "Mountain West",
+    "conference": "Pac-12",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -335,7 +346,8 @@
     "budget": 35000000,
     "id": "sch_boise_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "Boston College",
@@ -348,11 +360,12 @@
     "budget": 35000000,
     "id": "sch_boston_college",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Boston University",
-    "conference": "Independent / Other D-I",
+    "conference": "Patriot League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -361,12 +374,13 @@
     "budget": 8000000,
     "id": "sch_boston_university",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Bowling Green",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -374,11 +388,12 @@
     "budget": 8000000,
     "id": "sch_bowling_green",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Bradley",
-    "conference": "Independent / Other D-I",
+    "conference": "Missouri Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -387,12 +402,13 @@
     "budget": 8000000,
     "id": "sch_bradley",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Brown",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -400,11 +416,12 @@
     "budget": 8000000,
     "id": "sch_brown",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Bryant",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -413,12 +430,13 @@
     "budget": 8000000,
     "id": "sch_bryant",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Bucknell",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -426,12 +444,13 @@
     "budget": 8000000,
     "id": "sch_bucknell",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Buffalo",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -439,12 +458,13 @@
     "budget": 8000000,
     "id": "sch_buffalo",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Butler",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big East",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -452,24 +472,12 @@
     "budget": 8000000,
     "id": "sch_butler",
     "state": "",
-    "city": ""
-  },
-  {
-    "name": "CSU Bakersfield",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
-    "prestige": 50,
-    "academics": 70,
-    "facilities": 50,
-    "fan_support": 50,
-    "budget": 8000000,
-    "id": "sch_csu_bakersfield",
-    "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pioneer"
   },
   {
     "name": "CSUN",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -478,12 +486,13 @@
     "budget": 8000000,
     "id": "sch_csun",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Cal Poly",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big West",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -491,11 +500,12 @@
     "budget": 8000000,
     "id": "sch_cal_poly",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Sky"
   },
   {
     "name": "Cal State Bakersfield",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -504,11 +514,12 @@
     "budget": 8000000,
     "id": "sch_cal_state_bakersfield",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Cal State Fullerton",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -517,7 +528,8 @@
     "budget": 8000000,
     "id": "sch_cal_state_fullerton",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "California",
@@ -530,12 +542,13 @@
     "budget": 35000000,
     "id": "sch_california",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Campbell",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -543,11 +556,12 @@
     "budget": 8000000,
     "id": "sch_campbell",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Canisius",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -556,12 +570,13 @@
     "budget": 8000000,
     "id": "sch_canisius",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Central Arkansas",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "United Athletic",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -569,12 +584,13 @@
     "budget": 8000000,
     "id": "sch_central_arkansas",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "United Athletic"
   },
   {
     "name": "Central Connecticut",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Northeast",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -582,12 +598,13 @@
     "budget": 8000000,
     "id": "sch_central_connecticut",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Central Michigan",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -595,12 +612,13 @@
     "budget": 8000000,
     "id": "sch_central_michigan",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Charleston",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -608,11 +626,12 @@
     "budget": 8000000,
     "id": "sch_charleston",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Charlotte",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -621,12 +640,13 @@
     "budget": 35000000,
     "id": "sch_charlotte",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Chattanooga",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SoCon",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -634,11 +654,12 @@
     "budget": 8000000,
     "id": "sch_chattanooga",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Chicago State",
-    "conference": "Independent / Other D-I",
+    "conference": "Northeast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -647,7 +668,8 @@
     "budget": 8000000,
     "id": "sch_chicago_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Cincinnati",
@@ -660,7 +682,8 @@
     "budget": 35000000,
     "id": "sch_cincinnati",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Clemson",
@@ -673,11 +696,12 @@
     "budget": 35000000,
     "id": "sch_clemson",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Cleveland State",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -686,7 +710,8 @@
     "budget": 8000000,
     "id": "sch_cleveland_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Coastal Carolina",
@@ -699,12 +724,13 @@
     "budget": 35000000,
     "id": "sch_coastal_carolina",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Colgate",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -712,7 +738,8 @@
     "budget": 8000000,
     "id": "sch_colgate",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Colorado",
@@ -725,11 +752,12 @@
     "budget": 35000000,
     "id": "sch_colorado",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Colorado State",
-    "conference": "Mountain West",
+    "conference": "Pac-12",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -738,12 +766,13 @@
     "budget": 35000000,
     "id": "sch_colorado_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "Columbia",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -751,11 +780,12 @@
     "budget": 8000000,
     "id": "sch_columbia",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Coppin State",
-    "conference": "Independent / Other D-I",
+    "conference": "MEAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -764,12 +794,13 @@
     "budget": 8000000,
     "id": "sch_coppin_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Cornell",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -777,11 +808,12 @@
     "budget": 8000000,
     "id": "sch_cornell",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Creighton",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -790,12 +822,13 @@
     "budget": 8000000,
     "id": "sch_creighton",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Dartmouth",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -803,11 +836,12 @@
     "budget": 8000000,
     "id": "sch_dartmouth",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Davidson",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -816,25 +850,13 @@
     "budget": 8000000,
     "id": "sch_davidson",
     "state": "",
-    "city": ""
-  },
-  {
-    "name": "Davis",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
-    "prestige": 50,
-    "academics": 70,
-    "facilities": 50,
-    "fan_support": 50,
-    "budget": 8000000,
-    "id": "sch_davis",
-    "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Dayton",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Atlantic 10",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -842,11 +864,12 @@
     "budget": 8000000,
     "id": "sch_dayton",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pioneer"
   },
   {
     "name": "DePaul",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -855,12 +878,13 @@
     "budget": 8000000,
     "id": "sch_depaul",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Delaware",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "CUSA",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -868,12 +892,13 @@
     "budget": 8000000,
     "id": "sch_delaware",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Delaware State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MEAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -881,11 +906,12 @@
     "budget": 8000000,
     "id": "sch_delaware_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Denver",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -894,11 +920,12 @@
     "budget": 8000000,
     "id": "sch_denver",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Detroit Mercy",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -907,12 +934,13 @@
     "budget": 8000000,
     "id": "sch_detroit_mercy",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Drake",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Missouri Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -920,11 +948,12 @@
     "budget": 8000000,
     "id": "sch_drake",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pioneer"
   },
   {
     "name": "Drexel",
-    "conference": "Independent / Other D-I",
+    "conference": "Coastal Athletic Association",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -933,7 +962,8 @@
     "budget": 8000000,
     "id": "sch_drexel",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Duke",
@@ -946,11 +976,12 @@
     "budget": 35000000,
     "id": "sch_duke",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Duquesne",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -959,11 +990,12 @@
     "budget": 8000000,
     "id": "sch_duquesne",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "East Carolina",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -972,12 +1004,13 @@
     "budget": 35000000,
     "id": "sch_east_carolina",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Eastern Illinois",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -985,12 +1018,13 @@
     "budget": 8000000,
     "id": "sch_eastern_illinois",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Eastern Kentucky",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "United Athletic",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -998,12 +1032,13 @@
     "budget": 8000000,
     "id": "sch_eastern_kentucky",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "United Athletic"
   },
   {
     "name": "Eastern Michigan",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1011,12 +1046,13 @@
     "budget": 8000000,
     "id": "sch_eastern_michigan",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Eastern Washington",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big Sky",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1024,12 +1060,13 @@
     "budget": 8000000,
     "id": "sch_eastern_washington",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Sky"
   },
   {
     "name": "Elon",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1037,11 +1074,12 @@
     "budget": 8000000,
     "id": "sch_elon",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Evansville",
-    "conference": "Independent / Other D-I",
+    "conference": "Missouri Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1050,24 +1088,12 @@
     "budget": 8000000,
     "id": "sch_evansville",
     "state": "",
-    "city": ""
-  },
-  {
-    "name": "FAU",
-    "conference": "AAC",
-    "subdivision": "FBS",
-    "prestige": 70,
-    "academics": 70,
-    "facilities": 70,
-    "fan_support": 50,
-    "budget": 35000000,
-    "id": "sch_fau",
-    "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "FIU",
-    "conference": "AAC",
+    "conference": "CUSA",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -1076,11 +1102,12 @@
     "budget": 35000000,
     "id": "sch_fiu",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Fairfield",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1089,11 +1116,12 @@
     "budget": 8000000,
     "id": "sch_fairfield",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Fairleigh Dickinson",
-    "conference": "Independent / Other D-I",
+    "conference": "Northeast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1102,7 +1130,8 @@
     "budget": 8000000,
     "id": "sch_fairleigh_dickinson",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Florida",
@@ -1115,12 +1144,13 @@
     "budget": 35000000,
     "id": "sch_florida",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Florida A&M",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1128,12 +1158,13 @@
     "budget": 8000000,
     "id": "sch_florida_a_m",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Florida Atlantic",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "American",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1141,11 +1172,12 @@
     "budget": 8000000,
     "id": "sch_florida_atlantic",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Florida Gulf Coast",
-    "conference": "Independent / Other D-I",
+    "conference": "ASUN",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1154,20 +1186,8 @@
     "budget": 8000000,
     "id": "sch_florida_gulf_coast",
     "state": "",
-    "city": ""
-  },
-  {
-    "name": "Florida International",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
-    "prestige": 50,
-    "academics": 70,
-    "facilities": 50,
-    "fan_support": 50,
-    "budget": 8000000,
-    "id": "sch_florida_international",
-    "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Florida State",
@@ -1180,12 +1200,13 @@
     "budget": 35000000,
     "id": "sch_florida_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Fordham",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Atlantic 10",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1193,11 +1214,12 @@
     "budget": 8000000,
     "id": "sch_fordham",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Fresno State",
-    "conference": "Mountain West",
+    "conference": "Pac-12",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -1206,12 +1228,13 @@
     "budget": 35000000,
     "id": "sch_fresno_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "Furman",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SoCon",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1219,11 +1242,12 @@
     "budget": 8000000,
     "id": "sch_furman",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "George Mason",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1232,11 +1256,12 @@
     "budget": 8000000,
     "id": "sch_george_mason",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "George Washington",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1245,12 +1270,13 @@
     "budget": 8000000,
     "id": "sch_george_washington",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Georgetown",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big East",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1258,7 +1284,8 @@
     "budget": 8000000,
     "id": "sch_georgetown",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Georgia",
@@ -1271,7 +1298,8 @@
     "budget": 35000000,
     "id": "sch_georgia",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Georgia Southern",
@@ -1284,7 +1312,8 @@
     "budget": 35000000,
     "id": "sch_georgia_southern",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Georgia State",
@@ -1297,7 +1326,8 @@
     "budget": 35000000,
     "id": "sch_georgia_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Georgia Tech",
@@ -1310,11 +1340,12 @@
     "budget": 35000000,
     "id": "sch_georgia_tech",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Gonzaga",
-    "conference": "Independent / Other D-I",
+    "conference": "Pac-12",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1323,12 +1354,13 @@
     "budget": 8000000,
     "id": "sch_gonzaga",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "Grambling",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1336,11 +1368,12 @@
     "budget": 8000000,
     "id": "sch_grambling",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Green Bay",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1349,12 +1382,13 @@
     "budget": 8000000,
     "id": "sch_green_bay",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Hampton",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1362,12 +1396,13 @@
     "budget": 8000000,
     "id": "sch_hampton",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Harvard",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1375,12 +1410,13 @@
     "budget": 8000000,
     "id": "sch_harvard",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Hawaii",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big West",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1388,11 +1424,12 @@
     "budget": 8000000,
     "id": "sch_hawaii",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "High Point",
-    "conference": "Independent / Other D-I",
+    "conference": "Big South",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1401,12 +1438,13 @@
     "budget": 8000000,
     "id": "sch_high_point",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Hofstra",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1414,12 +1452,13 @@
     "budget": 8000000,
     "id": "sch_hofstra",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Holy Cross",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1427,7 +1466,8 @@
     "budget": 8000000,
     "id": "sch_holy_cross",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Houston",
@@ -1440,12 +1480,13 @@
     "budget": 35000000,
     "id": "sch_houston",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Houston Christian",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1453,12 +1494,13 @@
     "budget": 8000000,
     "id": "sch_houston_christian",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Howard",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MEAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1466,12 +1508,13 @@
     "budget": 8000000,
     "id": "sch_howard",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Idaho",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big Sky",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1479,12 +1522,13 @@
     "budget": 8000000,
     "id": "sch_idaho",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Idaho State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big Sky",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1492,7 +1536,8 @@
     "budget": 8000000,
     "id": "sch_idaho_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Sky"
   },
   {
     "name": "Illinois",
@@ -1505,12 +1550,13 @@
     "budget": 35000000,
     "id": "sch_illinois",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Illinois State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Missouri Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1518,12 +1564,13 @@
     "budget": 8000000,
     "id": "sch_illinois_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Incarnate Word",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1531,7 +1578,8 @@
     "budget": 8000000,
     "id": "sch_incarnate_word",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Indiana",
@@ -1544,12 +1592,13 @@
     "budget": 35000000,
     "id": "sch_indiana",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Indiana State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Missouri Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1557,11 +1606,12 @@
     "budget": 8000000,
     "id": "sch_indiana_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Iona",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1570,7 +1620,8 @@
     "budget": 8000000,
     "id": "sch_iona",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Iowa",
@@ -1583,7 +1634,8 @@
     "budget": 35000000,
     "id": "sch_iowa",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Iowa State",
@@ -1596,12 +1648,13 @@
     "budget": 35000000,
     "id": "sch_iowa_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Jackson State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1609,11 +1662,12 @@
     "budget": 8000000,
     "id": "sch_jackson_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Jacksonville",
-    "conference": "Independent / Other D-I",
+    "conference": "ASUN",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1622,7 +1676,8 @@
     "budget": 8000000,
     "id": "sch_jacksonville",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Jacksonville State",
@@ -1635,7 +1690,8 @@
     "budget": 35000000,
     "id": "sch_jacksonville_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "James Madison",
@@ -1648,7 +1704,8 @@
     "budget": 35000000,
     "id": "sch_james_madison",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Kansas",
@@ -1661,11 +1718,12 @@
     "budget": 35000000,
     "id": "sch_kansas",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Kansas City",
-    "conference": "Independent / Other D-I",
+    "conference": "Summit League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1674,7 +1732,8 @@
     "budget": 8000000,
     "id": "sch_kansas_city",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Kansas State",
@@ -1687,7 +1746,8 @@
     "budget": 35000000,
     "id": "sch_kansas_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Kennesaw State",
@@ -1700,12 +1760,13 @@
     "budget": 35000000,
     "id": "sch_kennesaw_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Kent State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1713,7 +1774,8 @@
     "budget": 8000000,
     "id": "sch_kent_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Kentucky",
@@ -1726,11 +1788,12 @@
     "budget": 35000000,
     "id": "sch_kentucky",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Kentucky State",
-    "conference": "Independent / Other D-I",
+    "conference": "SWAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1739,12 +1802,13 @@
     "budget": 8000000,
     "id": "sch_kentucky_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "LIU",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Northeast",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1752,7 +1816,8 @@
     "budget": 8000000,
     "id": "sch_liu",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "LSU",
@@ -1765,11 +1830,12 @@
     "budget": 35000000,
     "id": "sch_lsu",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "La Salle",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1778,12 +1844,13 @@
     "budget": 8000000,
     "id": "sch_la_salle",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Lafayette",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1791,12 +1858,13 @@
     "budget": 8000000,
     "id": "sch_lafayette",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Lamar",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1804,12 +1872,13 @@
     "budget": 8000000,
     "id": "sch_lamar",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Le Moyne",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Northeast",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1817,12 +1886,13 @@
     "budget": 8000000,
     "id": "sch_le_moyne",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Lehigh",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1830,7 +1900,8 @@
     "budget": 8000000,
     "id": "sch_lehigh",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Liberty",
@@ -1843,12 +1914,13 @@
     "budget": 35000000,
     "id": "sch_liberty",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Lindenwood",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1856,11 +1928,12 @@
     "budget": 8000000,
     "id": "sch_lindenwood",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Lipscomb",
-    "conference": "Independent / Other D-I",
+    "conference": "ASUN",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1869,12 +1942,13 @@
     "budget": 8000000,
     "id": "sch_lipscomb",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Little Rock",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1882,11 +1956,12 @@
     "budget": 8000000,
     "id": "sch_little_rock",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Long Beach State",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1895,11 +1970,12 @@
     "budget": 8000000,
     "id": "sch_long_beach_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Long Island",
-    "conference": "Independent / Other D-I",
+    "conference": "Northeast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1908,11 +1984,12 @@
     "budget": 8000000,
     "id": "sch_long_island",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Longwood",
-    "conference": "Independent / Other D-I",
+    "conference": "Big South",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1921,7 +1998,8 @@
     "budget": 8000000,
     "id": "sch_longwood",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Louisville",
@@ -1934,11 +2012,12 @@
     "budget": 35000000,
     "id": "sch_louisville",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Loyola Chicago",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1947,12 +2026,13 @@
     "budget": 8000000,
     "id": "sch_loyola_chicago",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Loyola Maryland",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Patriot League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -1960,11 +2040,12 @@
     "budget": 8000000,
     "id": "sch_loyola_maryland",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Loyola Marymount",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1973,11 +2054,12 @@
     "budget": 8000000,
     "id": "sch_loyola_marymount",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Maine",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1986,11 +2068,12 @@
     "budget": 8000000,
     "id": "sch_maine",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Manhattan",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -1999,12 +2082,13 @@
     "budget": 8000000,
     "id": "sch_manhattan",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Marist",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2012,11 +2096,12 @@
     "budget": 8000000,
     "id": "sch_marist",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pioneer"
   },
   {
     "name": "Marquette",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2025,7 +2110,8 @@
     "budget": 8000000,
     "id": "sch_marquette",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Marshall",
@@ -2038,7 +2124,8 @@
     "budget": 35000000,
     "id": "sch_marshall",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Maryland",
@@ -2051,11 +2138,12 @@
     "budget": 35000000,
     "id": "sch_maryland",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Maryland Eastern Shore",
-    "conference": "Independent / Other D-I",
+    "conference": "MEAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2064,12 +2152,13 @@
     "budget": 8000000,
     "id": "sch_maryland_eastern_shore",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "McNeese",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2077,11 +2166,12 @@
     "budget": 8000000,
     "id": "sch_mcneese",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Memphis",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -2090,12 +2180,13 @@
     "budget": 35000000,
     "id": "sch_memphis",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Mercer",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SoCon",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2103,11 +2194,12 @@
     "budget": 8000000,
     "id": "sch_mercer",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Mercyhurst",
-    "conference": "Independent / Other D-I",
+    "conference": "Northeast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2116,12 +2208,13 @@
     "budget": 8000000,
     "id": "sch_mercyhurst",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Merrimack",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Northeast",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2129,7 +2222,8 @@
     "budget": 8000000,
     "id": "sch_merrimack",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Miami",
@@ -2142,12 +2236,13 @@
     "budget": 35000000,
     "id": "sch_miami",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Miami Ohio",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2155,7 +2250,8 @@
     "budget": 8000000,
     "id": "sch_miami_ohio",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Michigan",
@@ -2168,7 +2264,8 @@
     "budget": 35000000,
     "id": "sch_michigan",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Michigan State",
@@ -2181,7 +2278,8 @@
     "budget": 35000000,
     "id": "sch_michigan_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Middle Tennessee",
@@ -2194,11 +2292,12 @@
     "budget": 35000000,
     "id": "sch_middle_tennessee",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Milwaukee",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2207,7 +2306,8 @@
     "budget": 8000000,
     "id": "sch_milwaukee",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Minnesota",
@@ -2220,7 +2320,8 @@
     "budget": 35000000,
     "id": "sch_minnesota",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Mississippi State",
@@ -2233,12 +2334,13 @@
     "budget": 35000000,
     "id": "sch_mississippi_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Mississippi Valley State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2246,7 +2348,8 @@
     "budget": 8000000,
     "id": "sch_mississippi_valley_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Missouri",
@@ -2259,12 +2362,13 @@
     "budget": 35000000,
     "id": "sch_missouri",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Missouri State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "CUSA",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2272,12 +2376,13 @@
     "budget": 8000000,
     "id": "sch_missouri_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Monmouth",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2285,12 +2390,13 @@
     "budget": 8000000,
     "id": "sch_monmouth",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Montana",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big Sky",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2298,12 +2404,13 @@
     "budget": 8000000,
     "id": "sch_montana",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Sky"
   },
   {
     "name": "Montana State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big Sky",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2311,12 +2418,13 @@
     "budget": 8000000,
     "id": "sch_montana_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Sky"
   },
   {
     "name": "Morehead State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2324,12 +2432,13 @@
     "budget": 8000000,
     "id": "sch_morehead_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Morgan State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MEAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2337,11 +2446,12 @@
     "budget": 8000000,
     "id": "sch_morgan_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Mount St. Mary's",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2350,12 +2460,13 @@
     "budget": 8000000,
     "id": "sch_mount_st_mary_s",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Murray State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Missouri Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2363,20 +2474,8 @@
     "budget": 8000000,
     "id": "sch_murray_state",
     "state": "",
-    "city": ""
-  },
-  {
-    "name": "NC A&T",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
-    "prestige": 50,
-    "academics": 70,
-    "facilities": 50,
-    "fan_support": 50,
-    "budget": 8000000,
-    "id": "sch_nc_a_t",
-    "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "NC State",
@@ -2389,11 +2488,12 @@
     "budget": 35000000,
     "id": "sch_nc_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "NJIT",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2402,11 +2502,12 @@
     "budget": 8000000,
     "id": "sch_njit",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Navy",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -2415,7 +2516,8 @@
     "budget": 35000000,
     "id": "sch_navy",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Nebraska",
@@ -2428,7 +2530,8 @@
     "budget": 35000000,
     "id": "sch_nebraska",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Nevada",
@@ -2441,11 +2544,12 @@
     "budget": 35000000,
     "id": "sch_nevada",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "New Hampshire",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2454,7 +2558,8 @@
     "budget": 8000000,
     "id": "sch_new_hampshire",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "New Mexico",
@@ -2467,7 +2572,8 @@
     "budget": 35000000,
     "id": "sch_new_mexico",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "New Mexico State",
@@ -2480,11 +2586,12 @@
     "budget": 35000000,
     "id": "sch_new_mexico_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Niagara",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2493,12 +2600,13 @@
     "budget": 8000000,
     "id": "sch_niagara",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Nicholls",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2506,12 +2614,13 @@
     "budget": 8000000,
     "id": "sch_nicholls",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Norfolk State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MEAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2519,12 +2628,13 @@
     "budget": 8000000,
     "id": "sch_norfolk_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "North Alabama",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "United Athletic",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2532,7 +2642,8 @@
     "budget": 8000000,
     "id": "sch_north_alabama",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "United Athletic"
   },
   {
     "name": "North Carolina",
@@ -2545,12 +2656,13 @@
     "budget": 35000000,
     "id": "sch_north_carolina",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "North Carolina A&T",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big South",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2558,12 +2670,13 @@
     "budget": 8000000,
     "id": "sch_north_carolina_a_t",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "North Carolina Central",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MEAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2571,11 +2684,12 @@
     "budget": 8000000,
     "id": "sch_north_carolina_central",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "North Dakota",
-    "conference": "Independent / Other D-I",
+    "conference": "Summit League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2584,12 +2698,13 @@
     "budget": 8000000,
     "id": "sch_north_dakota",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "North Dakota State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Summit League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2597,11 +2712,12 @@
     "budget": 8000000,
     "id": "sch_north_dakota_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MVFC"
   },
   {
     "name": "North Florida",
-    "conference": "Independent / Other D-I",
+    "conference": "ASUN",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2610,11 +2726,12 @@
     "budget": 8000000,
     "id": "sch_north_florida",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "North Texas",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -2623,12 +2740,13 @@
     "budget": 35000000,
     "id": "sch_north_texas",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Northeastern",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2636,12 +2754,13 @@
     "budget": 8000000,
     "id": "sch_northeastern",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Northern Illinois",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2649,12 +2768,13 @@
     "budget": 8000000,
     "id": "sch_northern_illinois",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Northern Iowa",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Missouri Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2662,11 +2782,12 @@
     "budget": 8000000,
     "id": "sch_northern_iowa",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Northern Kentucky",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2675,7 +2796,8 @@
     "budget": 8000000,
     "id": "sch_northern_kentucky",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Northwestern",
@@ -2688,12 +2810,13 @@
     "budget": 35000000,
     "id": "sch_northwestern",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Northwestern State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2701,11 +2824,12 @@
     "budget": 8000000,
     "id": "sch_northwestern_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Oakland",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2714,12 +2838,13 @@
     "budget": 8000000,
     "id": "sch_oakland",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Ohio",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2727,7 +2852,8 @@
     "budget": 8000000,
     "id": "sch_ohio",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Ohio State",
@@ -2740,7 +2866,8 @@
     "budget": 35000000,
     "id": "sch_ohio_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Oklahoma State",
@@ -2753,7 +2880,8 @@
     "budget": 35000000,
     "id": "sch_oklahoma_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Old Dominion",
@@ -2766,7 +2894,8 @@
     "budget": 35000000,
     "id": "sch_old_dominion",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Ole Miss",
@@ -2779,11 +2908,12 @@
     "budget": 35000000,
     "id": "sch_ole_miss",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Omaha",
-    "conference": "Independent / Other D-I",
+    "conference": "Summit League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2792,11 +2922,12 @@
     "budget": 8000000,
     "id": "sch_omaha",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Oral Roberts",
-    "conference": "Independent / Other D-I",
+    "conference": "Summit League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2805,7 +2936,8 @@
     "budget": 8000000,
     "id": "sch_oral_roberts",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Oregon",
@@ -2818,12 +2950,13 @@
     "budget": 35000000,
     "id": "sch_oregon",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Oregon State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Pac-12",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2831,11 +2964,12 @@
     "budget": 8000000,
     "id": "sch_oregon_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "Pacific",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2844,12 +2978,13 @@
     "budget": 8000000,
     "id": "sch_pacific",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Penn",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2857,7 +2992,8 @@
     "budget": 8000000,
     "id": "sch_penn",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Penn State",
@@ -2870,11 +3006,12 @@
     "budget": 35000000,
     "id": "sch_penn_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Pepperdine",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2883,7 +3020,8 @@
     "budget": 8000000,
     "id": "sch_pepperdine",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Pittsburgh",
@@ -2896,11 +3034,12 @@
     "budget": 35000000,
     "id": "sch_pittsburgh",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Portland",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2909,12 +3048,13 @@
     "budget": 8000000,
     "id": "sch_portland",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Portland State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big Sky",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2922,12 +3062,13 @@
     "budget": 8000000,
     "id": "sch_portland_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Prairie View",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2935,12 +3076,13 @@
     "budget": 8000000,
     "id": "sch_prairie_view",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Prairie View A&M",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2948,12 +3090,13 @@
     "budget": 8000000,
     "id": "sch_prairie_view_a_m",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Presbyterian",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big South",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2961,12 +3104,13 @@
     "budget": 8000000,
     "id": "sch_presbyterian",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Princeton",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -2974,11 +3118,12 @@
     "budget": 8000000,
     "id": "sch_princeton",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Providence",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -2987,7 +3132,8 @@
     "budget": 8000000,
     "id": "sch_providence",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Purdue",
@@ -3000,11 +3146,12 @@
     "budget": 35000000,
     "id": "sch_purdue",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Purdue Fort Wayne",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3013,11 +3160,12 @@
     "budget": 8000000,
     "id": "sch_purdue_fort_wayne",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Queens",
-    "conference": "Independent / Other D-I",
+    "conference": "ASUN",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3026,11 +3174,12 @@
     "budget": 8000000,
     "id": "sch_queens",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Quinnipiac",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3039,11 +3188,12 @@
     "budget": 8000000,
     "id": "sch_quinnipiac",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Radford",
-    "conference": "Independent / Other D-I",
+    "conference": "Big South",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3052,12 +3202,13 @@
     "budget": 8000000,
     "id": "sch_radford",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Rhode Island",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Atlantic 10",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3065,11 +3216,12 @@
     "budget": 8000000,
     "id": "sch_rhode_island",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Coastal Athletic Association"
   },
   {
     "name": "Rice",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3078,12 +3230,13 @@
     "budget": 35000000,
     "id": "sch_rice",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Richmond",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Atlantic 10",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3091,11 +3244,12 @@
     "budget": 8000000,
     "id": "sch_richmond",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Coastal Athletic Association"
   },
   {
     "name": "Rider",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3104,12 +3258,13 @@
     "budget": 8000000,
     "id": "sch_rider",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Robert Morris",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Horizon League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3117,7 +3272,8 @@
     "budget": 8000000,
     "id": "sch_robert_morris",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Rutgers",
@@ -3130,11 +3286,12 @@
     "budget": 35000000,
     "id": "sch_rutgers",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "SIU Edwardsville",
-    "conference": "Independent / Other D-I",
+    "conference": "Ohio Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3143,11 +3300,12 @@
     "budget": 8000000,
     "id": "sch_siu_edwardsville",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "SIUE",
-    "conference": "Independent / Other D-I",
+    "conference": "Ohio Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3156,7 +3314,8 @@
     "budget": 8000000,
     "id": "sch_siue",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "SMU",
@@ -3169,12 +3328,13 @@
     "budget": 35000000,
     "id": "sch_smu",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Sacramento State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big West",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3182,12 +3342,13 @@
     "budget": 8000000,
     "id": "sch_sacramento_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Sacred Heart",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Northeast",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3195,11 +3356,12 @@
     "budget": 8000000,
     "id": "sch_sacred_heart",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Saint Bonaventure",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3208,11 +3370,12 @@
     "budget": 8000000,
     "id": "sch_saint_bonaventure",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Saint Joseph's",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3221,11 +3384,12 @@
     "budget": 8000000,
     "id": "sch_saint_joseph_s",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Saint Louis",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3234,11 +3398,12 @@
     "budget": 8000000,
     "id": "sch_saint_louis",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Saint Mary's",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3247,11 +3412,12 @@
     "budget": 8000000,
     "id": "sch_saint_mary_s",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Saint Peter's",
-    "conference": "Independent / Other D-I",
+    "conference": "MAAC",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3260,7 +3426,8 @@
     "budget": 8000000,
     "id": "sch_saint_peter_s",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Sam Houston",
@@ -3273,12 +3440,13 @@
     "budget": 35000000,
     "id": "sch_sam_houston",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Samford",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SoCon",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3286,11 +3454,12 @@
     "budget": 8000000,
     "id": "sch_samford",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "San Diego State",
-    "conference": "Mountain West",
+    "conference": "Pac-12",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3299,11 +3468,12 @@
     "budget": 35000000,
     "id": "sch_san_diego_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "San Francisco",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3312,7 +3482,8 @@
     "budget": 8000000,
     "id": "sch_san_francisco",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "San Jose State",
@@ -3325,11 +3496,12 @@
     "budget": 35000000,
     "id": "sch_san_jose_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "Santa Clara",
-    "conference": "Independent / Other D-I",
+    "conference": "West Coast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3338,11 +3510,12 @@
     "budget": 8000000,
     "id": "sch_santa_clara",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Seton Hall",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3351,7 +3524,8 @@
     "budget": 8000000,
     "id": "sch_seton_hall",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "South Alabama",
@@ -3364,7 +3538,8 @@
     "budget": 35000000,
     "id": "sch_south_alabama",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "South Carolina",
@@ -3377,12 +3552,13 @@
     "budget": 35000000,
     "id": "sch_south_carolina",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "South Carolina State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MEAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3390,12 +3566,13 @@
     "budget": 8000000,
     "id": "sch_south_carolina_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "South Dakota",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Summit League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3403,12 +3580,13 @@
     "budget": 8000000,
     "id": "sch_south_dakota",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "South Dakota State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Summit League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3416,11 +3594,12 @@
     "budget": 8000000,
     "id": "sch_south_dakota_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MVFC"
   },
   {
     "name": "South Florida",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3429,12 +3608,13 @@
     "budget": 35000000,
     "id": "sch_south_florida",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Southeastern Louisiana",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3442,12 +3622,13 @@
     "budget": 8000000,
     "id": "sch_southeastern_louisiana",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Southern",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3455,12 +3636,13 @@
     "budget": 8000000,
     "id": "sch_southern",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Southern Illinois",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Missouri Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3468,11 +3650,12 @@
     "budget": 8000000,
     "id": "sch_southern_illinois",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Southern Indiana",
-    "conference": "Independent / Other D-I",
+    "conference": "Ohio Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3481,7 +3664,8 @@
     "budget": 8000000,
     "id": "sch_southern_indiana",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Southern Miss",
@@ -3494,12 +3678,13 @@
     "budget": 35000000,
     "id": "sch_southern_miss",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "St. Francis",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Northeast",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3507,11 +3692,12 @@
     "budget": 8000000,
     "id": "sch_st_francis",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "St. Francis Brooklyn",
-    "conference": "Independent / Other D-I",
+    "conference": "Northeast",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3520,11 +3706,12 @@
     "budget": 8000000,
     "id": "sch_st_francis_brooklyn",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "St. John's",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3533,11 +3720,12 @@
     "budget": 8000000,
     "id": "sch_st_john_s",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "St. Thomas",
-    "conference": "Independent / Other D-I",
+    "conference": "Summit League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3546,7 +3734,8 @@
     "budget": 8000000,
     "id": "sch_st_thomas",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Stanford",
@@ -3559,12 +3748,13 @@
     "budget": 35000000,
     "id": "sch_stanford",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Stephen F Austin",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "United Athletic",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3572,11 +3762,12 @@
     "budget": 8000000,
     "id": "sch_stephen_f_austin",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "United Athletic"
   },
   {
     "name": "Stetson",
-    "conference": "Independent / Other D-I",
+    "conference": "ASUN",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3585,12 +3776,13 @@
     "budget": 8000000,
     "id": "sch_stetson",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Stony Brook",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3598,7 +3790,8 @@
     "budget": 8000000,
     "id": "sch_stony_brook",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Syracuse",
@@ -3611,7 +3804,8 @@
     "budget": 35000000,
     "id": "sch_syracuse",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "TCU",
@@ -3624,11 +3818,12 @@
     "budget": 35000000,
     "id": "sch_tcu",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Temple",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3637,7 +3832,8 @@
     "budget": 35000000,
     "id": "sch_temple",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Tennessee",
@@ -3650,12 +3846,13 @@
     "budget": 35000000,
     "id": "sch_tennessee",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Tennessee State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3663,12 +3860,13 @@
     "budget": 8000000,
     "id": "sch_tennessee_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Tennessee Tech",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3676,7 +3874,8 @@
     "budget": 8000000,
     "id": "sch_tennessee_tech",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Texas",
@@ -3689,7 +3888,8 @@
     "budget": 35000000,
     "id": "sch_texas",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Texas A&M",
@@ -3702,12 +3902,13 @@
     "budget": 35000000,
     "id": "sch_texas_a_m",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Texas A&M Commerce",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Southland",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3715,12 +3916,13 @@
     "budget": 8000000,
     "id": "sch_texas_a_m_commerce",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Texas Southern",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SWAC",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3728,11 +3930,12 @@
     "budget": 8000000,
     "id": "sch_texas_southern",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Texas State",
-    "conference": "Sun Belt",
+    "conference": "Pac-12",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3741,7 +3944,8 @@
     "budget": 35000000,
     "id": "sch_texas_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "Texas Tech",
@@ -3754,12 +3958,13 @@
     "budget": 35000000,
     "id": "sch_texas_tech",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "The Citadel",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SoCon",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3767,12 +3972,13 @@
     "budget": 8000000,
     "id": "sch_the_citadel",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Toledo",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3780,12 +3986,13 @@
     "budget": 8000000,
     "id": "sch_toledo",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "Towson",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3793,7 +4000,8 @@
     "budget": 8000000,
     "id": "sch_towson",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Troy",
@@ -3806,11 +4014,12 @@
     "budget": 35000000,
     "id": "sch_troy",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Sun Belt"
   },
   {
     "name": "Tulane",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3819,11 +4028,12 @@
     "budget": 35000000,
     "id": "sch_tulane",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Tulsa",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3832,11 +4042,12 @@
     "budget": 35000000,
     "id": "sch_tulsa",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "UAB",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -3845,11 +4056,12 @@
     "budget": 35000000,
     "id": "sch_uab",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "UAlbany",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3858,12 +4070,13 @@
     "budget": 8000000,
     "id": "sch_ualbany",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UC Davis",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Mountain West",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3871,11 +4084,12 @@
     "budget": 8000000,
     "id": "sch_uc_davis",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "UC Irvine",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3884,11 +4098,12 @@
     "budget": 8000000,
     "id": "sch_uc_irvine",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UC Riverside",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3897,11 +4112,12 @@
     "budget": 8000000,
     "id": "sch_uc_riverside",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UC San Diego",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3910,11 +4126,12 @@
     "budget": 8000000,
     "id": "sch_uc_san_diego",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UC Santa Barbara",
-    "conference": "Independent / Other D-I",
+    "conference": "Big West",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3923,7 +4140,8 @@
     "budget": 8000000,
     "id": "sch_uc_santa_barbara",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UCF",
@@ -3936,7 +4154,8 @@
     "budget": 35000000,
     "id": "sch_ucf",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "UCLA",
@@ -3949,12 +4168,13 @@
     "budget": 35000000,
     "id": "sch_ucla",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "UConn",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big East",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -3962,11 +4182,12 @@
     "budget": 8000000,
     "id": "sch_uconn",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent"
   },
   {
     "name": "UIC",
-    "conference": "Independent / Other D-I",
+    "conference": "Missouri Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3975,11 +4196,12 @@
     "budget": 8000000,
     "id": "sch_uic",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UMBC",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -3988,11 +4210,12 @@
     "budget": 8000000,
     "id": "sch_umbc",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UMKC",
-    "conference": "Independent / Other D-I",
+    "conference": "Summit League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4001,11 +4224,12 @@
     "budget": 8000000,
     "id": "sch_umkc",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UNC Asheville",
-    "conference": "Independent / Other D-I",
+    "conference": "Big South",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4014,11 +4238,12 @@
     "budget": 8000000,
     "id": "sch_unc_asheville",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UNC Greensboro",
-    "conference": "Independent / Other D-I",
+    "conference": "SoCon",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4027,11 +4252,12 @@
     "budget": 8000000,
     "id": "sch_unc_greensboro",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UNC Wilmington",
-    "conference": "Independent / Other D-I",
+    "conference": "Coastal Athletic Association",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4040,7 +4266,8 @@
     "budget": 8000000,
     "id": "sch_unc_wilmington",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UNLV",
@@ -4053,7 +4280,8 @@
     "budget": 35000000,
     "id": "sch_unlv",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "USC",
@@ -4066,12 +4294,13 @@
     "budget": 35000000,
     "id": "sch_usc",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "UT Martin",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4079,11 +4308,12 @@
     "budget": 8000000,
     "id": "sch_ut_martin",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "UTSA",
-    "conference": "AAC",
+    "conference": "American",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -4092,7 +4322,8 @@
     "budget": 35000000,
     "id": "sch_utsa",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "American"
   },
   {
     "name": "Utah",
@@ -4105,11 +4336,12 @@
     "budget": 35000000,
     "id": "sch_utah",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Utah State",
-    "conference": "Mountain West",
+    "conference": "Pac-12",
     "subdivision": "FBS",
     "prestige": 70,
     "academics": 70,
@@ -4118,11 +4350,12 @@
     "budget": 35000000,
     "id": "sch_utah_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "VCU",
-    "conference": "Independent / Other D-I",
+    "conference": "Atlantic 10",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4131,12 +4364,13 @@
     "budget": 8000000,
     "id": "sch_vcu",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "VMI",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SoCon",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4144,11 +4378,12 @@
     "budget": 8000000,
     "id": "sch_vmi",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Valparaiso",
-    "conference": "Independent / Other D-I",
+    "conference": "Missouri Valley",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4157,7 +4392,8 @@
     "budget": 8000000,
     "id": "sch_valparaiso",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Vanderbilt",
@@ -4170,11 +4406,12 @@
     "budget": 35000000,
     "id": "sch_vanderbilt",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "SEC"
   },
   {
     "name": "Vermont",
-    "conference": "Independent / Other D-I",
+    "conference": "America East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4183,11 +4420,12 @@
     "budget": 8000000,
     "id": "sch_vermont",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Villanova",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4196,7 +4434,8 @@
     "budget": 8000000,
     "id": "sch_villanova",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Virginia",
@@ -4209,7 +4448,8 @@
     "budget": 35000000,
     "id": "sch_virginia",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Virginia Tech",
@@ -4222,12 +4462,13 @@
     "budget": 35000000,
     "id": "sch_virginia_tech",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Wagner",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Northeast",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4235,7 +4476,8 @@
     "budget": 8000000,
     "id": "sch_wagner",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Wake Forest",
@@ -4248,7 +4490,8 @@
     "budget": 35000000,
     "id": "sch_wake_forest",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "ACC"
   },
   {
     "name": "Washington",
@@ -4261,12 +4504,13 @@
     "budget": 35000000,
     "id": "sch_washington",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Washington State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Pac-12",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4274,12 +4518,13 @@
     "budget": 8000000,
     "id": "sch_washington_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Pac-12"
   },
   {
     "name": "Weber State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big Sky",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4287,7 +4532,8 @@
     "budget": 8000000,
     "id": "sch_weber_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Sky"
   },
   {
     "name": "West Virginia",
@@ -4300,12 +4546,13 @@
     "budget": 35000000,
     "id": "sch_west_virginia",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big 12"
   },
   {
     "name": "Western Illinois",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ohio Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4313,7 +4560,8 @@
     "budget": 8000000,
     "id": "sch_western_illinois",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Western Kentucky",
@@ -4326,12 +4574,13 @@
     "budget": 35000000,
     "id": "sch_western_kentucky",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "CUSA"
   },
   {
     "name": "Western Michigan",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "MAC",
+    "subdivision": "FBS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4339,12 +4588,13 @@
     "budget": 8000000,
     "id": "sch_western_michigan",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "MAC"
   },
   {
     "name": "William & Mary",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Coastal Athletic Association",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4352,12 +4602,13 @@
     "budget": 8000000,
     "id": "sch_william_mary",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Winthrop",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Big South",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4365,7 +4616,8 @@
     "budget": 8000000,
     "id": "sch_winthrop",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Wisconsin",
@@ -4378,12 +4630,13 @@
     "budget": 35000000,
     "id": "sch_wisconsin",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Big Ten"
   },
   {
     "name": "Wofford",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "SoCon",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4391,11 +4644,12 @@
     "budget": 8000000,
     "id": "sch_wofford",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Wright State",
-    "conference": "Independent / Other D-I",
+    "conference": "Horizon League",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4404,7 +4658,8 @@
     "budget": 8000000,
     "id": "sch_wright_state",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Wyoming",
@@ -4417,11 +4672,12 @@
     "budget": 35000000,
     "id": "sch_wyoming",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Mountain West"
   },
   {
     "name": "Xavier",
-    "conference": "Independent / Other D-I",
+    "conference": "Big East",
     "subdivision": "DI",
     "prestige": 50,
     "academics": 70,
@@ -4430,12 +4686,13 @@
     "budget": 8000000,
     "id": "sch_xavier",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Yale",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Ivy League",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
@@ -4443,18 +4700,356 @@
     "budget": 8000000,
     "id": "sch_yale",
     "state": "",
-    "city": ""
+    "city": "",
+    "football_conference": "Independent / Other D-I"
   },
   {
     "name": "Youngstown State",
-    "conference": "Independent / Other D-I",
-    "subdivision": "DI",
+    "conference": "Missouri Valley",
+    "subdivision": "FCS",
     "prestige": 50,
     "academics": 70,
     "facilities": 50,
     "fan_support": 50,
     "budget": 8000000,
     "id": "sch_youngstown_state",
+    "state": "",
+    "city": "",
+    "football_conference": "Independent / Other D-I"
+  },
+  {
+    "name": "California Baptist",
+    "conference": "Big West",
+    "football_conference": "Big West",
+    "subdivision": "DI",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_california_baptist",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Charleston Southern",
+    "conference": "Big South",
+    "football_conference": "Big South",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_charleston_southern",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Gardner-Webb",
+    "conference": "Big South",
+    "football_conference": "Big South",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_gardner_webb",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Southern Utah",
+    "conference": "Big Sky",
+    "football_conference": "Big Sky",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_southern_utah",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Tarleton State",
+    "conference": "United Athletic",
+    "football_conference": "United Athletic",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_tarleton_state",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Texas A&M-Corpus Christi",
+    "conference": "Southland",
+    "football_conference": "Southland",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_texas_aandm_corpus_christi",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "UT Arlington",
+    "conference": "United Athletic",
+    "football_conference": "United Athletic",
+    "subdivision": "DI",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_ut_arlington",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Utah Valley",
+    "conference": "Big West",
+    "football_conference": "Big West",
+    "subdivision": "DI",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_utah_valley",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Seattle",
+    "conference": "West Coast",
+    "football_conference": "West Coast",
+    "subdivision": "DI",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_seattle",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "South Carolina Upstate",
+    "conference": "Big South",
+    "football_conference": "Big South",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_south_carolina_upstate",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Louisiana Tech",
+    "conference": "CUSA",
+    "football_conference": "CUSA",
+    "subdivision": "FBS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_louisiana_tech",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "UTEP",
+    "conference": "Mountain West",
+    "football_conference": "Mountain West",
+    "subdivision": "FBS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_utep",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Stonehill",
+    "conference": "Northeast",
+    "football_conference": "Northeast",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_stonehill",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "UMass Lowell",
+    "conference": "America East",
+    "football_conference": "America East",
+    "subdivision": "DI",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_umass_lowell",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Siena",
+    "conference": "MAAC",
+    "football_conference": "MAAC",
+    "subdivision": "DI",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_siena",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Western Carolina",
+    "conference": "SoCon",
+    "football_conference": "SoCon",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_western_carolina",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Utah Tech",
+    "conference": "Big Sky",
+    "football_conference": "Big Sky",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_utah_tech",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Southeast Missouri",
+    "conference": "Ohio Valley",
+    "football_conference": "Ohio Valley",
+    "subdivision": "FCS",
+    "prestige": 45,
+    "academics": 65,
+    "facilities": 45,
+    "fan_support": 45,
+    "budget": 7000000,
+    "id": "sch_southeast_missouri",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "UMass",
+    "conference": "Atlantic 10",
+    "football_conference": "MAC",
+    "subdivision": "FBS",
+    "prestige": 55,
+    "academics": 70,
+    "facilities": 50,
+    "fan_support": 50,
+    "budget": 9000000,
+    "id": "sch_umass",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Northern Colorado",
+    "conference": "Big Sky",
+    "football_conference": "Big Sky",
+    "subdivision": "FCS",
+    "prestige": 55,
+    "academics": 70,
+    "facilities": 50,
+    "fan_support": 50,
+    "budget": 9000000,
+    "id": "sch_northern_colorado",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Notre Dame",
+    "conference": "Independent",
+    "football_conference": "Independent",
+    "subdivision": "FBS",
+    "prestige": 80,
+    "academics": 85,
+    "facilities": 70,
+    "fan_support": 70,
+    "budget": 15000000,
+    "id": "sch_notre_dame",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Oklahoma",
+    "conference": "SEC",
+    "football_conference": "SEC",
+    "subdivision": "FBS",
+    "prestige": 70,
+    "academics": 85,
+    "facilities": 70,
+    "fan_support": 70,
+    "budget": 15000000,
+    "id": "sch_oklahoma",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Arkansas State",
+    "conference": "Sun Belt",
+    "football_conference": "Sun Belt",
+    "subdivision": "FBS",
+    "prestige": 70,
+    "academics": 85,
+    "facilities": 70,
+    "fan_support": 70,
+    "budget": 15000000,
+    "id": "sch_arkansas_state",
+    "state": "",
+    "city": ""
+  },
+  {
+    "name": "Louisiana",
+    "conference": "Sun Belt",
+    "football_conference": "Sun Belt",
+    "subdivision": "FBS",
+    "prestige": 70,
+    "academics": 85,
+    "facilities": 70,
+    "fan_support": 70,
+    "budget": 15000000,
+    "id": "sch_louisiana",
     "state": "",
     "city": ""
   }

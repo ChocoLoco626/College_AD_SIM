@@ -1,6 +1,7 @@
 
 import json
 from pathlib import Path
+from datetime import date, timedelta
 import pandas as pd
 import streamlit as st
 
@@ -14,8 +15,12 @@ from management import (
     fire_head_coach, hire_head_coach, NIL_SPORTS
 )
 from postseason import school_postseason_history, latest_champions
+from history import ensure_history_schema, legacy_for_school, NCAA_DI_CHAMPIONSHIP_SPORTS
+from rankings import national_rankings, conference_standings, all_conference_summaries, SPORT_LABELS
+from scheduling import conference_for_sport
+from scheduling import ensure_schedule_schema, generate_season_schedules, current_season_schedule, negotiate_game, season_key
 
-st.set_page_config(page_title="College AD Simulator V6", page_icon="🏟️", layout="wide")
+st.set_page_config(page_title="College AD Simulator V10", page_icon="🏟️", layout="wide")
 init_db()
 
 if "user_id" not in st.session_state:
@@ -27,7 +32,10 @@ def money(x): return "${:,.0f}".format(x)
 
 def migrate_game(g):
     ensure_management_schema(g)
-    g.setdefault("version", 6)
+    ensure_schedule_schema(g["world"])
+    generate_season_schedules(g["world"], season_key(g["date"]), g["rng_seed"])
+    ensure_history_schema(g["world"])
+    g.setdefault("version", 9)
     g.setdefault("news", [])
     g["world"].setdefault("postseason_results", [])
     g["world"].setdefault("postseason_done", [])
@@ -37,7 +45,7 @@ def migrate_game(g):
         g["world"]["school_postseason"].setdefault(sid, [])
     return g
 
-st.title("🏟️ College Athletic Director Simulator — V6")
+st.title("🏟️ College Athletic Director Simulator — V10")
 st.caption("Career Mode • Persistent World • Coaches • NIL • Facilities • Postseason")
 
 if st.session_state.user_id is None:
@@ -105,7 +113,7 @@ st.sidebar.progress(g["career"]["job_security"]/100, text=f"Job security: {g['ca
 
 tabs = st.tabs([
     "🏠 Dashboard","📅 Calendar","🏈 Programs","💰 Money & NIL",
-    "🏆 Postseason","💼 Job Market","👥 People","📰 World","📜 Career"
+    "🏆 Postseason","📋 Schedules","🏢 Conferences","📊 Rankings","🏛️ History","💼 Job Market","👥 People","📰 World","📜 Career"
 ])
 
 with tabs[0]:
@@ -218,7 +226,18 @@ with tabs[3]:
 
 with tabs[4]:
     st.header("Postseason")
-    st.write("Postseason games are simulated as the calendar advances. Results persist in the save and feed into your résumé, board review, program prestige, and championship history.")
+    st.write("Conference championships and tournaments feed into the national postseason. Results persist in the save and feed into your résumé, board review, program prestige, and championship history.")
+    cp=g["world"].get("conference_postseason",[])
+    if cp:
+        st.subheader("Conference Championships & Tournaments")
+        rows=[]
+        for r in reversed(cp[-40:]):
+            winner=g["world"]["schools"].get(r.get("winner"),{}).get("name",r.get("winner",""))
+            loser=g["world"]["schools"].get(r.get("loser"),{}).get("name","")
+            rows.append({"Season":r.get("season",""),"Sport":r.get("sport","").replace("_"," ").title(),"Conference":r.get("conference",""),"Event":r.get("round",""),"Winner":winner,"Runner-up":loser})
+        st.dataframe(pd.DataFrame(rows),use_container_width=True,hide_index=True)
+    else:
+        st.info("Conference postseason results will appear here after the regular season reaches championship/tournament dates.")
     current_sid=g["current_school"]
     hist=school_postseason_history(g,current_sid)
     if hist:
@@ -250,6 +269,143 @@ with tabs[4]:
         st.dataframe(pd.DataFrame(rows),use_container_width=True,hide_index=True)
 
 with tabs[5]:
+    st.header("Season Schedules")
+    st.caption("Every team's schedule is generated once per season and then persists. Football is scheduled on Saturdays during the regular season, while basketball uses its normal winter calendar.")
+    season_options=[]
+    start_year=int(g["date"][:4])
+    for y in range(max(2026,start_year-1), start_year+3):
+        season_options.append(f"{y}-{y+1}")
+    season=st.selectbox("Season", season_options, index=season_options.index(season_key(g["date"])) if season_key(g["date"]) in season_options else 0, key="schedule_season")
+    generate_season_schedules(g["world"], season, g["rng_seed"])
+    sport=st.selectbox("Sport", ["football","men_basketball","women_basketball"], format_func=lambda x:x.replace("_"," ").title(), key="schedule_sport")
+    team_options=sorted(g["world"]["schools"], key=lambda sid:g["world"]["schools"][sid]["name"])
+    team_sid=st.selectbox("Team", team_options, index=team_options.index(g["current_school"]), format_func=lambda sid:g["world"]["schools"][sid]["name"], key="schedule_team")
+    selected_school=g["world"]["schools"][team_sid]
+    st.subheader(f"{selected_school['name']} — {sport.replace('_',' ').title()} — {season}")
+    sched=current_season_schedule(g["world"],team_sid,season,sport)
+    rows=[]
+    for x in sched:
+        opp=g["world"]["schools"].get(x["opponent"],{}).get("name",x["opponent"])
+        result="Scheduled"
+        matching=[r for r in g["world"].get("results",[]) if r.get("date")==x["date"] and r.get("sport")==sport and {r.get("home"),r.get("away")}=={team_sid,x["opponent"]}]
+        if matching:
+            r=matching[-1]; won=r.get("winner")==team_sid; score=""
+            result=("W" if won else "L")
+        rows.append({"Date":x["date"],"Opponent":opp,"Site":"Home" if x["home"] else "Away","Type":"Conference" if x["conference_game"] else "Non-Conference","Result":result,"Status":x["status"]})
+    st.dataframe(pd.DataFrame(rows),use_container_width=True,hide_index=True)
+    if sport=="football":
+        football_dates=sorted({x["date"] for x in sched})
+        if football_dates:
+            off_saturday=[d for d in football_dates if date.fromisoformat(d).weekday()!=5]
+            if off_saturday:
+                st.warning(f"Football schedule contains non-Saturday dates: {', '.join(off_saturday)}")
+            else:
+                st.success("Football regular-season games are scheduled on Saturdays.")
+    st.divider()
+    st.subheader("Negotiate a non-conference game")
+    eligible=[sid for sid,s in g["world"]["schools"].items() if sid!=g["current_school"] and (sport!="football" or s.get("subdivision") in ("FBS","FCS"))]
+    opp=st.selectbox("Opponent",eligible,format_func=lambda sid:g["world"]["schools"][sid]["name"],key="neg_opp")
+    future_dates=[]
+    for dd in sorted({x["date"] for x in sched if x["date"]>=g["date"] and not x["conference_game"]}):
+        future_dates.append(dd)
+    if not future_dates:
+        future_dates=[(date.fromisoformat(g["date"])+timedelta(days=7*i)).isoformat() for i in range(1,9)]
+    game_date=st.selectbox("Date (a non-conference slot will be replaced if occupied)",future_dates,key="neg_date")
+    home=st.radio("Location",["We host — we pay the guarantee","We travel — we get paid"],key="neg_home")
+    amount=st.number_input("Guarantee amount",min_value=0,step=25000,value=250000,key="neg_amount")
+    if st.button("Submit game proposal",type="primary"):
+        ok,msg=negotiate_game(g["world"],g["current_school"],opp,sport,game_date,home.startswith("We host"),amount,g["rng_seed"])
+        (st.success if ok else st.warning)(msg)
+        if ok: st.rerun()
+
+with tabs[6]:
+    st.header("🏢 Conference Dashboard")
+    st.caption("The 2026–27 world is built around 361 Division I school records and 32 primary multi-sport conferences. Football uses sport-specific conference membership, so football-only alignments and realignment are handled separately.")
+    m1,m2=st.columns(2); m1.metric("Division I schools", len(g["world"]["schools"])); m2.metric("Primary conferences represented", len({conference_for_sport(s, "men_basketball") for s in g["world"]["schools"].values()}))
+    season = season_key(g["date"])
+    conf_sport = st.selectbox("Sport", ["football","men_basketball","women_basketball"], format_func=lambda x: SPORT_LABELS[x], key="conf_sport")
+    summaries = all_conference_summaries(g["world"], season, conf_sport)
+    st.subheader("All conferences")
+    st.dataframe(pd.DataFrame(summaries), use_container_width=True, hide_index=True)
+    st.divider()
+    conf_names = sorted({conference_for_sport(s, conf_sport) for s in g["world"]["schools"].values() if conf_sport != "football" or s.get("subdivision") in ("FBS", "FCS")})
+    conf = st.selectbox("View conference", conf_names, key="conf_view")
+    st.subheader(conf)
+    standings = conference_standings(g["world"], season, conf_sport, conf)
+    rows=[]
+    for place, sid, stt, ss in standings:
+        rows.append({"#":place,"School":ss["name"],"Conf":f"{stt['conf_w']}-{stt['conf_l']}","Conf %":f"{stt['conf_pct']*100:.1f}%","Overall":f"{stt['w']}-{stt['l']}","SOS":f"{stt['sos']*100:.1f}","Streak":stt["streak"],"Power":f"{stt['power']:.1f}"})
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+    st.info("Conference records are calculated from completed conference games in the selected season. Teams with no games played remain visible with 0-0 records.")
+
+with tabs[7]:
+    st.header("📊 National Rankings")
+    st.caption("Rankings are generated from the current simulated season using winning percentage, strength of schedule, conference performance, recent form and program strength. They are simulation rankings, not official NCAA rankings.")
+    season = season_key(g["date"])
+    ranking_sport = st.selectbox("Sport", ["football","men_basketball","women_basketball"], format_func=lambda x: SPORT_LABELS[x], key="ranking_sport")
+    rank_limit = st.select_slider("Show", options=[10,25,50], value=25, key="rank_limit")
+    ranking_rows = []
+    for rank, sid, stt in national_rankings(g["world"], season, ranking_sport, rank_limit):
+        ss = g["world"]["schools"][sid]
+        ranking_rows.append({"Rank":rank,"School":ss["name"],"Conference":conference_for_sport(ss, ranking_sport),"Record":f"{stt['w']}-{stt['l']}","Conf":f"{stt['conf_w']}-{stt['conf_l']}","SOS":round(stt["sos"]*100,1),"Power":round(stt["power"],1),"Streak":stt["streak"]})
+    st.dataframe(pd.DataFrame(ranking_rows), use_container_width=True, hide_index=True)
+    st.subheader("How the ranking works")
+    st.write("Power = 52% winning percentage + 18% strength of schedule + 10% conference winning percentage + 8% recent form + 12% program strength. The formula is intentionally transparent so the ranking can evolve into a more advanced NET/RPI-style model later.")
+
+with tabs[8]:
+    st.header("🏛️ Championships & Historical Records")
+    st.caption("Real-world NCAA championship history is kept separate from your simulated career. Simulated Final Fours, conference titles and national championships are added as your world evolves.")
+    ensure_history_schema(g["world"])
+    current_sid=g["current_school"]
+    legacy=legacy_for_school(g["world"], current_sid)
+    a,b,c,d,e=st.columns(5)
+    a.metric("National titles", legacy["national_titles"])
+    b.metric("Final Fours", legacy["final_fours"])
+    c.metric("Elite Eights", legacy["elite_eights"])
+    d.metric("Sweet 16s", legacy["sweet_sixteens"])
+    e.metric("All-sports titles", legacy["all_sports_titles"])
+
+    sport_filter=st.selectbox("Sport", ["All","football","men_basketball","women_basketball"], format_func=lambda x: x.replace("_"," ").title())
+    source_filter=st.selectbox("Record source", ["All","Official historical","Simulator career"])
+    school_filter=st.text_input("Search school", value="", placeholder="e.g. Kentucky, Michigan, UConn")
+    rows=[]
+    for x in g["world"].get("historical_championships",[]):
+        sport=x.get("sport","")
+        if sport_filter!="All" and sport!=sport_filter: continue
+        src="Simulator career" if x.get("simulated") else "Official historical"
+        if source_filter!="All" and src!=source_filter: continue
+        if school_filter and school_filter.lower() not in str(x.get("champion","")).lower(): continue
+        runner=x.get("runner_up")
+        runner_name=g["world"]["schools"].get(runner,{}).get("name",runner or "")
+        rows.append({"Year":x.get("year"),"Sport":sport.replace("_"," ").title(),"Champion":x.get("champion"),"Runner-up":runner_name,"Source":src,"Championship":x.get("championship", "National Championship")})
+    rows.sort(key=lambda r:r["Year"], reverse=True)
+    st.subheader("NCAA championship sports")
+    st.caption(f"The all-sports résumé is designed to track every NCAA championship sport. The current historical baseline includes football and basketball; additional sport-by-sport historical winners can be loaded into the same database without changing the career system.")
+    st.write(", ".join(x.replace("_", " ").title() for x in NCAA_DI_CHAMPIONSHIP_SPORTS))
+
+    st.subheader("National championship history")
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+
+    run_rows=[]
+    for x in g["world"].get("historical_tournament_runs",[]):
+        sport=x.get("sport","")
+        if sport_filter!="All" and sport!=sport_filter: continue
+        if school_filter and school_filter.lower() not in str(x.get("school","")).lower(): continue
+        run_rows.append({"Year":x.get("year"),"Sport":sport.replace("_"," ").title(),"School":x.get("school"),"Round":x.get("round"),"Tournament":x.get("tournament","NCAA Tournament"),"Source":"Simulator" if x.get("simulated") else "Official historical"})
+    run_rows.sort(key=lambda r:(r["Year"],r["Sport"],r["School"]), reverse=True)
+    st.subheader("Final Four / tournament history")
+    st.dataframe(pd.DataFrame(run_rows), use_container_width=True, hide_index=True)
+
+    st.subheader("Your school's championship résumé")
+    school_champs=[x for x in g["world"].get("historical_championships",[]) if x.get("school_id")==current_sid]
+    if school_champs:
+        st.dataframe(pd.DataFrame([{
+            "Year":x.get("year"),"Sport":x.get("sport","").replace("_"," ").title(),"Champion":x.get("champion"),"Source":"Simulator" if x.get("simulated") else "Historical"
+        } for x in sorted(school_champs,key=lambda z:z.get("year",0),reverse=True)]),use_container_width=True,hide_index=True)
+    else:
+        st.info("No championship history is linked to this school yet. Historical data remains available in the full table above.")
+
+with tabs[9]:
     st.header("AD Job Market")
     jobs=get_job_market(g)
     if not jobs:
@@ -263,7 +419,7 @@ with tabs[5]:
         if cols[3].button("Accept",key="job_"+j["school_id"]):
             take_job(g,j["school_id"]); g["career"]["job_offers"]+=1; st.rerun()
 
-with tabs[6]:
+with tabs[10]:
     st.header("People")
     st.subheader("Your Athletic Department")
     for sport,cid in school["coaches"].items():
@@ -280,7 +436,7 @@ with tabs[6]:
         rows.append({"School":s["name"],"AD":ad["name"],"Rep":ad["reputation"],"Prestige":s["prestige"]})
     st.dataframe(pd.DataFrame(rows),use_container_width=True,hide_index=True)
 
-with tabs[7]:
+with tabs[11]:
     st.header("Living College Athletics World")
     st.write(f"**{len(g['world']['schools'])} schools** are loaded into this save. Results persist rather than being regenerated when you open a page.")
     c1,c2=st.columns(2)
@@ -294,7 +450,7 @@ with tabs[7]:
                      "Loser":g["world"]["schools"][r["loser"]]["name"]})
     st.dataframe(pd.DataFrame(rows),use_container_width=True,hide_index=True)
 
-with tabs[8]:
+with tabs[12]:
     st.header("Your AD Career")
     st.write(f"**{g['player']['name']} — Director of Athletics**")
     c1,c2,c3,c4=st.columns(4)

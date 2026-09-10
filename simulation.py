@@ -4,6 +4,7 @@ from career import apply_season_review
 from world import simulate_week
 from postseason import process_postseason
 from management import management_tick, ensure_management_schema
+from scheduling import season_key, generate_season_schedules, scheduled_games_on
 
 def parse_date(x): return date.fromisoformat(x)
 
@@ -14,6 +15,7 @@ def events_on(d):
 def advance_days(game, days):
     ensure_management_schema(game)
     rng = random.Random(game["rng_seed"] + len(game["world"]["results"]) * 13 + days)
+    generate_season_schedules(game["world"], season_key(game["date"]), game["rng_seed"])
     for _ in range(days):
         d = parse_date(game["date"]) + timedelta(days=1)
         game["date"] = d.isoformat()
@@ -26,9 +28,29 @@ def advance_days(game, days):
         game["finances"]["expenses"] += daily_exp
         game["finances"]["cash"] += daily_rev - daily_exp
 
-        # Persistent world games once per week.
-        if d.weekday() == 5:
-            simulate_week(game["world"], d, rng)
+        # Play games from the saved season schedule.
+        season = season_key(d)
+        generate_season_schedules(game["world"], season, game["rng_seed"])
+        if d.weekday() in (0,1,2,3,4,5):
+            played = game["world"].setdefault("played_schedule_games", [])
+            for a,b,sport,g in scheduled_games_on(game["world"], season, d.isoformat()):
+                key=f"{season}:{sport}:{d.isoformat()}:{min(a,b)}:{max(a,b)}"
+                if key in played: continue
+                winner, loser = __import__("world").play_game(game["world"], a, b, sport, rng, d.isoformat())
+                rec=game["world"]["results"][-1]
+                rec["schedule_game"] = True
+                rec["conference_game"] = bool(g.get("conference_game"))
+                rec["contract_id"] = g.get("contract_id")
+                played.append(key)
+                # Guarantee payments settle when the scheduled game is played.
+                cid=g.get("contract_id")
+                if cid:
+                    for c in game["world"].get("game_contracts",[]):
+                        if c["id"]==cid and not c.get("settled"):
+                            amount=int(c.get("amount",0)); payer=c["payer"]; receiver=c["receiver"]
+                            if payer==game["current_school"]: game["finances"]["cash"] -= amount
+                            elif receiver==game["current_school"]: game["finances"]["cash"] += amount
+                            c["settled"] = True
 
         management_tick(game)
         process_postseason(game)
