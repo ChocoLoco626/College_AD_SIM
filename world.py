@@ -43,6 +43,10 @@ def new_world(schools, seed):
             world["coaches"][cid] = coach_profile(rng, p)
             world["coaches"][cid]["school_id"] = sid
             world["coaches"][cid]["sport"] = sport
+            world["coaches"][cid].setdefault("satisfaction", 72)
+            world["coaches"][cid].setdefault("last_demand_date", None)
+            world["coaches"][cid].setdefault("demand", None)
+            world["coaches"][cid].setdefault("career_years", 0)
             world["schools"][sid]["coaches"][sport] = cid
         aid = f"ad_{sid}"
         world["ad_people"][aid] = {

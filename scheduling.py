@@ -27,7 +27,39 @@ def conference_for_sport(school, sport):
         return school.get("football_conference") or school.get("conference") or "Independent"
     return school.get("conference") or "Independent"
 
+# Known 2026 FCS programs present in the simulator seed. This also repairs older saves
+# where these schools were left as generic D-I and therefore received no football schedule.
+FCS_FOOTBALL_TEAMS = {
+    "Abilene Christian", "Alabama A&M", "Alabama State", "Albany", "Alcorn State",
+    "Austin Peay", "Bethune Cookman", "Brown", "Bryant", "Bucknell", "Butler",
+    "Cal Poly", "Campbell", "Central Arkansas", "Central Connecticut", "Chattanooga",
+    "Colgate", "Columbia", "Cornell", "Dartmouth", "Davidson", "Dayton", "Delaware",
+    "Delaware State", "Drake", "Duquesne", "Eastern Illinois", "Eastern Kentucky",
+    "Eastern Washington", "Elon", "Florida A&M", "Fordham", "Furman", "Georgetown",
+    "Grambling", "Harvard", "Holy Cross", "Houston Christian", "Howard", "Idaho",
+    "Idaho State", "Illinois State", "Incarnate Word", "Indiana State", "Jackson State",
+    "Lafayette", "Lamar", "Lehigh", "LIU", "Maine", "Mercer", "McNeese", "Mercyhurst",
+    "Merrimack", "Mississippi Valley State", "Missouri State", "Monmouth", "Montana",
+    "Montana State", "Morehead State", "Morgan State", "Murray State", "New Hampshire",
+    "Nicholls", "Norfolk State", "North Alabama", "North Carolina Central", "North Dakota",
+    "North Dakota State", "Northern Iowa", "Northwestern State", "Penn", "Portland State",
+    "Prairie View", "Prairie View A&M", "Presbyterian", "Princeton", "Rhode Island",
+    "Richmond", "Robert Morris", "Sacramento State", "Samford", "South Carolina State",
+    "South Dakota", "South Dakota State", "Southeastern Louisiana", "Southern",
+    "Southern Illinois", "Stephen F Austin", "Stetson", "Stony Brook", "Tennessee State",
+    "Tennessee Tech", "Texas A&M Commerce", "Texas Southern", "The Citadel", "Towson",
+    "UC Davis", "UT Martin", "Villanova", "Wagner", "Weber State", "Western Carolina",
+    "Western Illinois", "William & Mary", "Wofford", "Yale", "Youngstown State"
+}
+
+def repair_football_classification(world):
+    for s in world.get("schools", {}).values():
+        if s.get("subdivision") not in ("FBS", "FCS") and s.get("name") in FCS_FOOTBALL_TEAMS:
+            s["subdivision"] = "FCS"
+
+
 def ensure_schedule_schema(world):
+    repair_football_classification(world)
     world.setdefault("conferences", {})
     world.setdefault("schedules", {})
     world.setdefault("game_contracts", [])
@@ -88,82 +120,162 @@ def _pair_round_robin(members, games_needed, rng):
 
 
 def _schedule_sport(world, sport, season, rng):
-    w=sport_window(sport, season)
-    members=[sid for sid,s in world["schools"].items() if sport != "football" or s.get("subdivision") in ("FBS","FCS")]
-    schedule={sid:[] for sid in members}
-    pairs=[]; pairset=set(); counts={sid:0 for sid in members}
+    w = sport_window(sport, season)
+    members = [sid for sid, s in world["schools"].items()
+               if sport != "football" or s.get("subdivision") in ("FBS", "FCS")]
+    schedule = {sid: [] for sid in members}
+    counts = {sid: 0 for sid in members}
+    conf_counts = {sid: 0 for sid in members}
+    pairset = set()
+    pairs = []
+    target = w["games"]
+    conf_target = min(w["conf_games"], target)
 
-    def add_pair(a,b,is_conf):
-        if a==b: return False
-        key=tuple(sorted((a,b)))
-        if key in pairset: return False
-        pairs.append((a,b,is_conf)); pairset.add(key); counts[a]+=1; counts[b]+=1
+    def add_pair(a, b, is_conf):
+        if a == b or counts[a] >= target or counts[b] >= target:
+            return False
+        key = tuple(sorted((a, b)))
+        if key in pairset:
+            return False
+        if is_conf and (conf_counts[a] >= conf_target or conf_counts[b] >= conf_target):
+            return False
+        pairset.add(key)
+        pairs.append((a, b, is_conf))
+        counts[a] += 1; counts[b] += 1
+        if is_conf:
+            conf_counts[a] += 1; conf_counts[b] += 1
         return True
 
-    # Conference schedules: use sport-specific membership (football can differ from the primary conference).
-    sport_confs = {}
-    for sid in members:
-        conf_name = conference_for_sport(world["schools"][sid], sport)
-        sport_confs.setdefault(conf_name, []).append(sid)
-    for conf_name, cm in sport_confs.items():
-        if len(cm)<2: continue
-        rng.shuffle(cm)
-        target=min(w["conf_games"], len(cm)-1)
-        # Each pass gives each school approximately two games; stop once everyone reaches target.
-        for shift in range(1, len(cm)):
-            if all(sum(1 for a,b,is_conf in pairs if is_conf and (a==sid or b==sid)) >= target for sid in cm):
+    # Greedy exact-total scheduler. It prioritizes conference games until the
+    # conference target is reached, then fills the remaining slots with OOC games.
+    guard = max(10000, len(members) * target * 8)
+    for _ in range(guard):
+        incomplete = [sid for sid in members if counts[sid] < target]
+        if not incomplete:
+            break
+        a = min(incomplete, key=lambda sid: (counts[sid], rng.random()))
+        conf_a = conference_for_sport(world["schools"][a], sport)
+        candidates = [b for b in incomplete if b != a and tuple(sorted((a, b))) not in pairset]
+        if not candidates:
+            break
+        conf_candidates = [b for b in candidates
+                           if conference_for_sport(world["schools"][b], sport) == conf_a
+                           and conf_counts[a] < conf_target
+                           and conf_counts[b] < conf_target]
+        pool = conf_candidates or candidates
+        # Favor opponents that also need games, and avoid creating an extreme imbalance.
+        pool.sort(key=lambda b: (counts[b], conf_counts[b]), reverse=False)
+        top = pool[:min(12, len(pool))]
+        b = rng.choice(top)
+        is_conf = conference_for_sport(world["schools"][b], sport) == conf_a and conf_counts[a] < conf_target and conf_counts[b] < conf_target
+        add_pair(a, b, is_conf)
+
+    # A second pass handles rare odd/even deadlocks. It does not exceed the target.
+    for a in members:
+        while counts[a] < target:
+            candidates = [b for b in members if b != a and counts[b] < target and tuple(sorted((a, b))) not in pairset]
+            if not candidates:
                 break
-            rotated=cm[shift:]+cm[:shift]
-            for i in range(0,len(cm)-1,2):
-                a=cm[i]; b=rotated[i]
-                add_pair(a,b,True)
-                if counts[a] >= target and counts[b] >= target:
-                    continue
+            b = min(candidates, key=lambda x: counts[x])
+            is_conf = conference_for_sport(world["schools"][a], sport) == conference_for_sport(world["schools"][b], sport) and conf_counts[a] < conf_target and conf_counts[b] < conf_target
+            if not add_pair(a, b, is_conf):
+                break
 
-    # Non-conference games fill each team's target total. Prefer different conferences.
-    max_attempts=max(1000,len(members)*50)
-    attempts=0
-    while attempts<max_attempts and any(counts[sid] < w["games"] for sid in members):
-        attempts+=1
-        a=min((sid for sid in members if counts[sid] < w["games"]), key=lambda x:counts[x], default=None)
-        if a is None: break
-        preferred=[b for b in members if b!=a and counts[b]<w["games"] and conference_for_sport(world["schools"][b], sport)!=conference_for_sport(world["schools"][a], sport) and tuple(sorted((a,b))) not in pairset]
-        candidates=preferred or [b for b in members if b!=a and counts[b]<w["games"] and tuple(sorted((a,b))) not in pairset]
-        if not candidates: break
-        b=min(candidates,key=lambda x:counts[x]) if len(candidates)>20 else rng.choice(candidates)
-        add_pair(a,b,False)
-
-    # Calendar dates are assigned without double-booking a school.
-    dates=_game_dates(w, max(1,len(pairs)), sport, rng)
-    busy={sid:set() for sid in members}
-    for idx,(a,b,is_conf) in enumerate(pairs):
-        chosen=None
-        for d in dates:
-            if d not in busy[a] and d not in busy[b]:
-                chosen=d; break
+    dates = [d for d in _dates(w["start"], w["end"]) if sport != "football" or d.weekday() == 5]
+    rng.shuffle(dates)
+    dates = sorted(dates)
+    busy = {sid: set() for sid in members}
+    for idx, (a, b, is_conf) in enumerate(pairs):
+        chosen = next((d for d in dates if d not in busy[a] and d not in busy[b]), None)
         if chosen is None:
-            # Continue the calendar after the normal window if an unusually large schedule requires it.
-            first_sat=w["start"] + timedelta(days=(5 - w["start"].weekday()) % 7)
-            chosen=first_sat + timedelta(days=(idx % 14) * 7)
+            # Basketball can use additional weekdays if the calendar gets crowded;
+            # football remains on Saturdays.
+            base = w["start"]
+            if sport == "football":
+                chosen = base + timedelta(days=(5 - base.weekday()) % 7 + (idx % 13) * 7)
+            else:
+                chosen = base + timedelta(days=(idx % 100))
+                while chosen.weekday() == 6:
+                    chosen += timedelta(days=1)
         busy[a].add(chosen); busy[b].add(chosen)
-        home=rng.choice([True,False]); ds=chosen.isoformat()
-        _add(schedule,a,ds,b,home,sport,is_conf)
-        _add(schedule,b,ds,a,not home,sport,is_conf)
+        home = rng.choice([True, False])
+        ds = chosen.isoformat()
+        _add(schedule, a, ds, b, home, sport, is_conf)
+        _add(schedule, b, ds, a, not home, sport, is_conf)
 
     for sid in schedule:
-        schedule[sid].sort(key=lambda x:x["date"])
-    world["schedules"].setdefault(season,{})[sport]=schedule
+        schedule[sid].sort(key=lambda x: x["date"])
+    world["schedules"].setdefault(season, {})[sport] = schedule
     return schedule
+
+
+def repair_missing_schedule_coverage(world, season, seed):
+    """Repair older/generated worlds where an eligible school received no games."""
+    ensure_schedule_schema(world)
+    data = world.get("schedules", {}).get(season, {})
+    rng = random.Random(seed + 7711 + sum(ord(c) for c in season))
+    for sport, rules in SPORT_RULES.items():
+        by_school = data.setdefault(sport, {})
+        eligible = [sid for sid in world.get("schools", {})
+                    if sport != "football" or world["schools"][sid].get("subdivision") in ("FBS", "FCS")]
+        for sid in eligible:
+            by_school.setdefault(sid, [])
+        zero = [sid for sid in eligible if not by_school.get(sid)]
+        # First pair programs that were completely absent from an older schedule.
+        remaining = list(zero)
+        while len(remaining) >= 2:
+            sid = remaining.pop(0)
+            oid = remaining.pop(0)
+            w = sport_window(sport, season)
+            used = {g.get("date") for g in by_school.get(sid, [])} | {g.get("date") for g in by_school.get(oid, [])}
+            dates = [d for d in _dates(w["start"], w["end"]) if (sport != "football" or d.weekday() == 5) and d.isoformat() not in used]
+            if not dates:
+                break
+            d = rng.choice(dates); home = rng.choice([True, False])
+            _add(by_school, sid, d.isoformat(), oid, home, sport, False)
+            _add(by_school, oid, d.isoformat(), sid, not home, sport, False)
+        for sid in remaining:
+            target_games = rules["games"]
+            attempts = 0
+            while len(by_school.get(sid, [])) < target_games and attempts < target_games * 5:
+                attempts += 1
+                candidates = [oid for oid in eligible if oid != sid and not any(g.get("opponent") == oid for g in by_school.get(sid, []))]
+                if not candidates:
+                    break
+                rng.shuffle(candidates)
+                oid = min(candidates, key=lambda x: len(by_school.get(x, [])))
+                # Keep the repaired school's schedule at the sport target by making room
+                # on a full opponent's slate when necessary.
+                if len(by_school.get(oid, [])) >= target_games:
+                    old = next((g for g in by_school[oid] if not g.get("conference_game")), by_school[oid][0] if by_school[oid] else None)
+                    if old:
+                        old_opp, old_date = old.get("opponent"), old.get("date")
+                        by_school[oid] = [g for g in by_school[oid] if not (g.get("date") == old_date and g.get("opponent") == old_opp)]
+                        if old_opp in by_school:
+                            by_school[old_opp] = [g for g in by_school[old_opp] if not (g.get("date") == old_date and g.get("opponent") == oid)]
+                w = sport_window(sport, season)
+                used = {g.get("date") for g in by_school.get(sid, [])} | {g.get("date") for g in by_school.get(oid, [])}
+                dates = [d for d in _dates(w["start"], w["end"]) if (sport != "football" or d.weekday() == 5) and d.isoformat() not in used]
+                if not dates:
+                    continue
+                d = rng.choice(dates); home = rng.choice([True, False])
+                _add(by_school, sid, d.isoformat(), oid, home, sport, False)
+                _add(by_school, oid, d.isoformat(), sid, not home, sport, False)
+        for sid in by_school:
+            by_school[sid].sort(key=lambda x: x["date"])
+    return data
 
 
 def generate_season_schedules(world, season, seed):
     ensure_schedule_schema(world)
     if season in world.get("schedule_generated", []):
+        repair_missing_schedule_coverage(world, season, seed)
         return world["schedules"].get(season,{})
     rng=random.Random(seed + sum(ord(c) for c in season)*97)
     for sport in SPORT_RULES:
         _schedule_sport(world,sport,season,rng)
     world["schedule_generated"].append(season)
+    repair_missing_schedule_coverage(world, season, seed)
     return world["schedules"][season]
 
 

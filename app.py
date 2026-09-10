@@ -7,12 +7,12 @@ import streamlit as st
 
 from database import init_db, create_user, authenticate_user, list_saves, save_game, load_game
 from game_state import create_game
-from simulation import advance_days, season_phase, current_calendar_events
-from career import get_job_market, take_job
+from simulation import advance_days, simulate_to_season_end, season_phase, current_calendar_events
+from career import get_job_market, take_job, ensure_career_schema, job_market_tick
 from management import (
     ensure_management_schema, available_nil, set_nil_allocation,
     available_boosters, invest_facility, coach_candidates,
-    fire_head_coach, hire_head_coach, NIL_SPORTS
+    fire_head_coach, hire_head_coach, NIL_SPORTS, resolve_coach_demand
 )
 from postseason import school_postseason_history, latest_champions
 from history import ensure_history_schema, legacy_for_school, NCAA_DI_CHAMPIONSHIP_SPORTS
@@ -20,7 +20,7 @@ from rankings import national_rankings, conference_standings, all_conference_sum
 from scheduling import conference_for_sport
 from scheduling import ensure_schedule_schema, generate_season_schedules, current_season_schedule, negotiate_game, season_key
 
-st.set_page_config(page_title="College AD Simulator V10", page_icon="🏟️", layout="wide")
+st.set_page_config(page_title="College AD Simulator V12", page_icon="🏟️", layout="wide")
 init_db()
 
 if "user_id" not in st.session_state:
@@ -32,10 +32,12 @@ def money(x): return "${:,.0f}".format(x)
 
 def migrate_game(g):
     ensure_management_schema(g)
+    ensure_career_schema(g)
+    job_market_tick(g)
     ensure_schedule_schema(g["world"])
     generate_season_schedules(g["world"], season_key(g["date"]), g["rng_seed"])
     ensure_history_schema(g["world"])
-    g.setdefault("version", 9)
+    g.setdefault("version", 12)
     g.setdefault("news", [])
     g["world"].setdefault("postseason_results", [])
     g["world"].setdefault("postseason_done", [])
@@ -45,8 +47,8 @@ def migrate_game(g):
         g["world"]["school_postseason"].setdefault(sid, [])
     return g
 
-st.title("🏟️ College Athletic Director Simulator — V10")
-st.caption("Career Mode • Persistent World • Coaches • NIL • Facilities • Postseason")
+st.title("🏟️ College Athletic Director Simulator — V11")
+st.caption("Career Mode • Persistent World • Coaches • NIL • Facilities • Postseason • Living Coach Market")
 
 if st.session_state.user_id is None:
     tab1, tab2 = st.tabs(["Sign in", "Create account"])
@@ -143,7 +145,9 @@ with tabs[0]:
     if a.button("Advance 1 day"): advance_days(g,1); st.rerun()
     if b.button("Advance 1 week"): advance_days(g,7); st.rerun()
     if c.button("Advance 1 month"): advance_days(g,30); st.rerun()
-    if d.button("Advance 1 year"): advance_days(g,365); st.rerun()
+    if d.button("Simulate season", type="primary"):
+        simulate_to_season_end(g); st.rerun()
+    st.caption("Simulate season runs the rest of the current academic year, plays the saved schedules and postseason, completes the July 31 season review, and generates your next job offers.")
 
 with tabs[1]:
     st.header("2026–27 Calendar")
@@ -163,6 +167,18 @@ with tabs[2]:
                 st.write(f"**Head Coach:** {coach['name']}")
                 st.write(f"**Overall:** {coach['overall']} • **Recruiting:** {coach['recruiting']} • **Development:** {coach['development']}")
                 st.write(f"**Personality:** {coach['personality']} • **Strength:** {coach['trait']} • **Contract:** {coach.get('contract_years',1)} years")
+                sat=coach.get("satisfaction",72)
+                st.progress(max(0,min(100,sat))/100, text=f"Coach satisfaction: {sat}/100")
+                demand=coach.get("demand")
+                if demand and demand.get("status")=="Pending":
+                    st.warning(f"**{coach['name']} is demanding ${int(demand['requested_nil']):,.0f} more NIL** before {demand['deadline']}.\n\n{demand['message']}")
+                    dc=st.columns(3)
+                    if dc[0].button("Approve NIL",key=f"approve_demand_{sport}"):
+                        ok,msg=resolve_coach_demand(g,sport,"approve"); (st.success if ok else st.error)(msg); st.rerun()
+                    if dc[1].button("Negotiate",key=f"negotiate_demand_{sport}"):
+                        ok,msg=resolve_coach_demand(g,sport,"negotiate"); (st.success if ok else st.error)(msg); st.rerun()
+                    if dc[2].button("Deny",key=f"deny_demand_{sport}"):
+                        ok,msg=resolve_coach_demand(g,sport,"deny"); (st.success if ok else st.error)(msg); st.rerun()
                 if st.button(f"Fire {coach['name']}", key=f"fire_{sport}"):
                     ok,msg=fire_head_coach(g,sport)
                     (st.success if ok else st.error)(msg)
@@ -283,6 +299,11 @@ with tabs[5]:
     selected_school=g["world"]["schools"][team_sid]
     st.subheader(f"{selected_school['name']} — {sport.replace('_',' ').title()} — {season}")
     sched=current_season_schedule(g["world"],team_sid,season,sport)
+    if not sched:
+        if sport == "football" and selected_school.get("subdivision") not in ("FBS", "FCS"):
+            st.info(f"{selected_school['name']} is currently modeled as a non-football Division I school, so no football schedule is generated.")
+        else:
+            st.warning("This team has no games in this season. The schedule repair system will attempt to assign a slate when the season is generated.")
     rows=[]
     for x in sched:
         opp=g["world"]["schools"].get(x["opponent"],{}).get("name",x["opponent"])
@@ -407,24 +428,43 @@ with tabs[8]:
 
 with tabs[9]:
     st.header("AD Job Market")
+    st.caption("The AD market is now a living system. Schools can fire or lose ADs during the season, other ADs compete for openings, and your five end-of-season offers are drawn from the changing market.")
+
+    openings=[x for x in g["world"].get("job_openings",[]) if x.get("status")=="Open"]
+    if openings:
+        st.subheader(f"Openings around the country ({len(openings)})")
+        open_rows=[]
+        for opening in openings:
+            oschool=g["world"]["schools"].get(opening["school_id"],{})
+            age=(date.fromisoformat(g["date"])-date.fromisoformat(opening["opened_date"])).days
+            open_rows.append({"School":oschool.get("name"),"Conference":oschool.get("conference"),"Prestige":oschool.get("prestige"),"Reason":opening.get("reason"),"Opened":opening.get("opened_date"),"Days Open":max(0,age)})
+        st.dataframe(pd.DataFrame(open_rows).sort_values(["Prestige","Days Open"],ascending=[False,True]),use_container_width=True,hide_index=True)
+    else:
+        st.info("There are no publicly open AD positions right now. The market will change as the season progresses.")
+
     jobs=get_job_market(g)
     if not jobs:
-        st.info("No schools are currently willing to hire you. Build your résumé and check again.")
-    for j in jobs:
-        s=g["world"]["schools"][j["school_id"]]
-        cols=st.columns([3,1,1,1])
-        cols[0].markdown(f"### {s['name']}\nPrestige: **{s['prestige']}** • Conference: **{s['conference']}**")
-        cols[1].write(f"Required rep\n**{j['required']}**")
-        cols[2].write(f"Budget\n**{money(s['budget'])}**")
-        if cols[3].button("Accept",key="job_"+j["school_id"]):
-            take_job(g,j["school_id"]); g["career"]["job_offers"]+=1; st.rerun()
+        st.info("Your next set of offers will be generated at the end of the season.")
+    else:
+        st.subheader(f"Your {len(jobs)} current offers")
+        for i,j in enumerate(jobs, 1):
+            s=g["world"]["schools"][j["school_id"]]
+            cols=st.columns([0.4,3,1,1,1])
+            cols[0].metric("#", i)
+            cols[1].markdown(f"### {s['name']}\nPrestige: **{s['prestige']}** • Conference: **{s['conference']}**")
+            cols[2].write(f"Required rep\n**{j['required']}**")
+            cols[3].write(f"Budget\n**{money(s['budget'])}**")
+            if cols[4].button("Accept offer",key="job_"+j["school_id"]):
+                take_job(g,j["school_id"]); st.rerun()
+        st.divider()
+        st.write("Accepting an offer moves you immediately to that athletic department. Other ADs may have competed for the same opening, so market timing matters. Your reputation, résumé, championships and world history remain intact.")
 
 with tabs[10]:
     st.header("People")
     st.subheader("Your Athletic Department")
     for sport,cid in school["coaches"].items():
         c=g["world"]["coaches"].get(cid)
-        if c: st.write(f"**{sport.replace('_',' ').title()} — {c['name']}** | OVR {c['overall']} | {c['trait']} | {c['personality']}")
+        if c: st.write(f"**{sport.replace('_',' ').title()} — {c['name']}** | OVR {c['overall']} | {c['trait']} | {c['personality']} | Satisfaction {c.get('satisfaction',72)}/100")
         else: st.write(f"**{sport.replace('_',' ').title()} — VACANT**")
     st.write(f"**University President:** {school['president']}")
     st.divider()

@@ -25,7 +25,7 @@ def create_game(schools, player_name, seed=None):
     world["ad_people"][aid]["reputation"] = 30
 
     return {
-        "version": 10,
+        "version": 13,
         "mode": "career",
         "rng_seed": seed,
         "player": {"name": player_name, "title": "Director of Athletics"},
@@ -34,7 +34,7 @@ def create_game(schools, player_name, seed=None):
         "career": {
             "reputation": 30, "job_security": 72, "board_approval": 65,
             "seasons": 0, "career_wins": 0, "career_losses": 0,
-            "fundraising": 0, "job_offers": 0, "last_move": None
+            "fundraising": 0, "job_offers": 0, "job_offer_pool": [], "job_moves": 0, "last_move": None
         },
         "finances": {"cash": int(s["budget"] * .12), "revenue": 0, "expenses": 0, "nil_budget": int(s["budget"]*.015)},
         "history": [],

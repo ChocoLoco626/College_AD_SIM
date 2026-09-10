@@ -1,9 +1,9 @@
 from datetime import date, timedelta
 import random
-from career import apply_season_review
+from career import apply_season_review, job_market_tick
 from world import simulate_week
 from postseason import process_postseason
-from management import management_tick, ensure_management_schema
+from management import management_tick, ensure_management_schema, coach_market_tick
 from scheduling import season_key, generate_season_schedules, scheduled_games_on
 
 def parse_date(x): return date.fromisoformat(x)
@@ -39,6 +39,7 @@ def advance_days(game, days):
                 winner, loser = __import__("world").play_game(game["world"], a, b, sport, rng, d.isoformat())
                 rec=game["world"]["results"][-1]
                 rec["schedule_game"] = True
+                rec["season"] = season
                 rec["conference_game"] = bool(g.get("conference_game"))
                 rec["contract_id"] = g.get("contract_id")
                 played.append(key)
@@ -53,7 +54,11 @@ def advance_days(game, days):
                             c["settled"] = True
 
         management_tick(game)
+        coach_market_tick(game)
         process_postseason(game)
+
+        # The AD job market changes throughout the year: firings, departures and AI hires.
+        job_market_tick(game)
 
         # Small world news.
         if d.weekday() == 0 and rng.random() < .25:
@@ -84,3 +89,16 @@ def current_calendar_events(game):
     d = parse_date(game["date"])
     from calendar_data import CALENDAR
     return [(ds,desc) for ds,desc in CALENDAR if abs((date.fromisoformat(ds)-d).days) <= 30]
+
+
+def simulate_to_season_end(game):
+    """Simulate the remainder of the current academic year through July 31."""
+    current = parse_date(game["date"])
+    target_year = current.year if current.month >= 8 else current.year - 1
+    target = date(target_year + 1, 7, 31)
+    if current >= target:
+        target = date(current.year + 1, 7, 31)
+    days = (target - current).days
+    if days > 0:
+        advance_days(game, days)
+    return game

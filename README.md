@@ -1,8 +1,8 @@
-# College Athletic Director Simulator V10
+# College Athletic Director Simulator V12
 
 Streamlit career-mode college athletics simulator.
 
-## V10 highlights
+## V12 highlights
 - Persistent career saves/accounts
 - Lower-prestige starting AD jobs with a job market and career progression
 - Persistent coaches, ADs, NIL, facilities, budgets and results
@@ -28,7 +28,7 @@ streamlit run app.py
 The app expects `data/schools.json` relative to the project root.
 
 
-## V10 — 2026-27 Division I membership and realignment
+## V12 — 2026-27 Division I membership and realignment
 - Baseline expanded to 361 school records, matching the NCAA-reported active Division I institution count for 2026-27.
 - Added sport-aware conference membership with separate football conference alignment.
 - Added the 2026 Pac-12 relaunch (nine full members), CUSA/Mountain West changes, and additional 2026 realignment corrections.
@@ -36,3 +36,29 @@ The app expects `data/schools.json` relative to the project root.
 - Conference and ranking screens now use the sport-specific conference alignment.
 
 The NCAA reports 361 active Division I institutions and 44 Division I conferences for 2026-27. The simulator uses this as the membership target; the data is a simulation-ready representation and should not be treated as an official NCAA database.
+
+
+## V12 — Career offers and season simulation
+- Each completed season now generates exactly five AD job offers for the player to choose from.
+- Accepting an offer moves the player to that athletic department without resetting the career résumé or world history.
+- Added a one-click **Simulate season** control that runs the remainder of the academic year through July 31, including saved schedules, postseason, finances and the annual career review.
+- Rebuilt schedule generation to give every modeled football program exactly 12 regular-season games and every Division I school exactly 30 men's and 30 women's basketball games in the base model.
+- Added FCS classification for the known FCS programs in the seed data, including The Citadel, so schools that previously had no football schedule now receive one.
+- Added schedule repair for existing saves so newly classified FCS programs are inserted into previously generated seasons.
+- Football regular-season games remain on Saturdays.
+
+The schedule model is simulation-generated rather than a copy of official team schedules. NCAA's 2026 season includes Week Zero games beginning Aug. 27 and many Saturday games thereafter; the simulator uses the same general calendar structure while generating its own matchups.
+
+
+## V12 — Living AD Job Market
+- Schools can create AD vacancies during the season from board pressure, poor performance, or long-tenured leadership.
+- Other generated ADs compete for vacancies and can move between schools.
+- Open positions have dates, reasons, requirements, and can be filled before the player accepts them.
+- End-of-season job offers are selected from the live market plus recruiting schools, giving the player five choices.
+- The player's job moves are tracked separately from the number of offers.
+
+
+## V13
+- Living coaching market: coach satisfaction, NIL demands, negotiations, denials, deadlines, and departures.
+- Coaches can contact the AD for additional NIL resources and threaten to leave when demands are not met.
+- AI coaches can change schools when morale collapses and a stronger destination is available.
