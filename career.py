@@ -25,7 +25,30 @@ def evaluate_board(game):
     return max(0, min(100, round(score)))
 
 def apply_season_review(game):
+    s = game["world"]["schools"][game["current_school"]]
+    season_start = int(game["date"][:4]) - 1
+    postseason = game["world"].get("school_postseason", {}).get(game["current_school"], [])
+    season_post = [x for x in postseason if str(x.get("season","")).startswith(str(season_start))]
+    post_wins = sum(1 for x in season_post if x.get("result") == "W")
+    post_losses = sum(1 for x in season_post if x.get("result") == "L")
+    reg_wins = 0
+    reg_losses = 0
+    for r in game["world"].get("results", []):
+        try:
+            y = int(r["date"][:4])
+            in_season = (y == season_start and r["date"] >= f"{season_start}-08-01") or (y == season_start + 1 and r["date"] < f"{season_start+1}-08-01")
+            if in_season and r.get("winner") == game["current_school"]: reg_wins += 1
+            if in_season and r.get("loser") == game["current_school"]: reg_losses += 1
+        except Exception:
+            pass
+    game["career"]["career_wins"] += reg_wins + post_wins
+    game["career"]["career_losses"] += reg_losses + post_losses
     board = evaluate_board(game)
+    if post_wins:
+        board = min(100, board + post_wins * 2)
+    if any(x.get("round") == "National Championship" and x.get("result") == "W" for x in season_post):
+        board = min(100, board + 12)
+
     game["career"]["board_approval"] = board
     if board < 30:
         game["career"]["job_security"] = max(0, game["career"]["job_security"] - 25)
@@ -36,7 +59,7 @@ def apply_season_review(game):
     game["career"]["reputation"] = career_reputation(game)
     game["career"]["seasons"] += 1
     game["history"].append({
-        "season": game["date"][:4] + "-" + str(int(game["date"][:4])+1),
+        "season": f"{season_start}-{season_start+1}",
         "school": game["world"]["schools"][game["current_school"]]["name"],
         "board_approval": board,
         "reputation": game["career"]["reputation"]

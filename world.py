@@ -25,6 +25,9 @@ def new_world(schools, seed):
             "academic": rng.randint(55, 95),
             "attendance": max(5000, int(p * rng.uniform(300, 700))),
             "records": {sport: {"w": 0, "l": 0} for sport in SPORTS},
+            "nil_allocations": {sport: 0 for sport in SPORTS},
+            "facility_levels": {sport: max(1, min(10, round((p + rng.randint(-10,10))/10))) for sport in SPORTS},
+            "facility_investments": [], "coach_history": [],
             "coaches": {sport: None for sport in SPORTS},
             "ad_id": None,
             "president": person_name(rng),
@@ -55,7 +58,9 @@ def school_strength(world, sid, sport):
     s = world["schools"][sid]
     cid = s["coaches"].get(sport)
     coach = world["coaches"].get(cid, {})
-    return s["prestige"] * 0.65 + s["facilities"] * 0.15 + coach.get("overall", 50) * 0.20
+    nil = s.get("nil_allocations", {}).get(sport, 0)
+    nil_effect = min(12, (nil / 1_000_000) * 1.2)
+    return s["prestige"] * 0.58 + s["facilities"] * 0.14 + coach.get("overall", 50) * 0.20 + nil_effect
 
 def play_game(world, a, b, sport, rng, date):
     sa = school_strength(world, a, sport)
@@ -73,19 +78,27 @@ def play_game(world, a, b, sport, rng, date):
     return winner, loser
 
 def simulate_week(world, date, rng):
-    # Persistent results: each simulated week generates a small set of games.
-    ids = list(world["schools"])
+    ids=list(world["schools"])
     rng.shuffle(ids)
-    sport_cycle = ["football", "men_basketball", "women_basketball", "volleyball", "baseball", "softball"]
-    sport = sport_cycle[(int(date.strftime("%j")) // 7) % len(sport_cycle)]
-    pairs = []
-    # Keep the number of world games bounded for Streamlit performance.
-    for i in range(0, min(len(ids)-1, 120), 2):
-        a, b = ids[i], ids[i+1]
-        if world["schools"][a]["conference"] == world["schools"][b]["conference"] or i < 12:
-            pairs.append((a, b))
-    for a, b in pairs[:18]:
-        play_game(world, a, b, sport, rng, date.isoformat())
+    if date.month in (8,9,10,11,12) and date >= __import__("datetime").date(2026,8,27):
+        sport="football"
+        eligible=[sid for sid in ids if world["schools"][sid].get("subdivision")=="FBS" or sport in world["schools"][sid]["records"]]
+        pairs=[]
+        for i in range(0,min(len(eligible)-1,160),2):
+            a,b=eligible[i],eligible[i+1]
+            pairs.append((a,b))
+        for a,b in pairs[:80]:
+            play_game(world,a,b,sport,rng,date.isoformat())
+    if date.month in (11,12,1,2,3):
+        for sport in ("men_basketball","women_basketball"):
+            eligible=ids[:]
+            for i in range(0,min(len(eligible)-1,160),2):
+                play_game(world,eligible[i],eligible[i+1],sport,rng,date.isoformat())
+    if date.month in (2,3,4,5,6):
+        for sport in ("baseball","softball"):
+            eligible=ids[:]
+            for i in range(0,min(len(eligible)-1,60),2):
+                play_game(world,eligible[i],eligible[i+1],sport,rng,date.isoformat())
 
 def conference_table(world, conference, sport):
     rows = []

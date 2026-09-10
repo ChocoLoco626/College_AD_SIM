@@ -2,6 +2,8 @@ from datetime import date, timedelta
 import random
 from career import apply_season_review
 from world import simulate_week
+from postseason import process_postseason
+from management import management_tick, ensure_management_schema
 
 def parse_date(x): return date.fromisoformat(x)
 
@@ -10,6 +12,7 @@ def events_on(d):
     return [desc for ds,desc in CALENDAR if ds == d.isoformat()]
 
 def advance_days(game, days):
+    ensure_management_schema(game)
     rng = random.Random(game["rng_seed"] + len(game["world"]["results"]) * 13 + days)
     for _ in range(days):
         d = parse_date(game["date"]) + timedelta(days=1)
@@ -26,6 +29,9 @@ def advance_days(game, days):
         # Persistent world games once per week.
         if d.weekday() == 5:
             simulate_week(game["world"], d, rng)
+
+        management_tick(game)
+        process_postseason(game)
 
         # Small world news.
         if d.weekday() == 0 and rng.random() < .25:
