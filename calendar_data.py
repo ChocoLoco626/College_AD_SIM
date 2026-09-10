@@ -1,0 +1,17 @@
+CALENDAR = [
+    ("2026-08-27", "FCS football first contest"),
+    ("2026-08-28", "Field hockey / volleyball competition window"),
+    ("2026-09-01", "Cross country competition window"),
+    ("2026-09-03", "FBS football first contest"),
+    ("2026-09-18", "Women's ice hockey first contest"),
+    ("2026-10-02", "Men's ice hockey first contest"),
+    ("2026-11-02", "DI men's and women's basketball first contest"),
+    ("2027-02-06", "Men's lacrosse first contest"),
+    ("2027-02-19", "Baseball first contest"),
+    ("2027-02-25", "Women's beach volleyball first contest"),
+    ("2027-04-02", "Women's Final Four window"),
+    ("2027-04-03", "Men's Final Four window"),
+    ("2027-06-03", "Women's College World Series window"),
+    ("2027-06-12", "Men's College World Series window"),
+    ("2027-07-31", "Academic/athletic year close"),
+]
