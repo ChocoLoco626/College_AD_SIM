@@ -75,7 +75,7 @@ def _conference_rankings(w, conference, sport):
         games=[r for r in w.get("results",[]) if r.get("sport")==sport and r.get("conference_game") and (r.get("winner")==sid or r.get("loser")==sid)]
         cw=sum(r.get("winner")==sid for r in games)
         cl=sum(r.get("loser")==sid for r in games)
-        overall=w["schools"][sid]["records"][sport]
+        overall=w["schools"][sid].get("season_records",w["schools"][sid]["records"])[sport]
         pct=cw/max(1,cw+cl)
         rows.append((pct, cw, overall["w"], w["schools"][sid].get("prestige",50), sid))
     rows.sort(reverse=True)
@@ -135,7 +135,7 @@ def _basketball_tournament(game,sport,dt):
     rng=random.Random(game["rng_seed"]+hash(key)%10_000_000)
     eligible=[]
     for sid,s in w["schools"].items():
-        r=s["records"][sport]; games=r["w"]+r["l"]
+        r=s.get("season_records",s["records"])[sport]; games=r["w"]+r["l"]
         if games>=8:
             champ_bonus=0
             if any(x.get("season")==season and x.get("sport")==sport and x.get("winner")==sid for x in w.get("conference_postseason",[])):
@@ -181,7 +181,7 @@ def _football_postseason(game):
     ranked=[]
     champs={x.get("winner") for x in w.get("conference_postseason",[]) if x.get("season")==season and x.get("sport")=="football"}
     for sid in fbs:
-        r=w["schools"][sid]["records"]["football"]; games=r["w"]+r["l"]
+        r=w["schools"][sid].get("season_records",w["schools"][sid]["records"])["football"]; games=r["w"]+r["l"]
         if games>=2:
             conf_bonus=3 if sid in champs else 0
             score=r["w"]*8-r["l"]*2+w["schools"][sid]["prestige"]*.35+conf_bonus

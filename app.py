@@ -12,7 +12,7 @@ from career import get_job_market, take_job, ensure_career_schema, job_market_ti
 from management import (
     ensure_management_schema, available_nil, set_nil_allocation,
     available_boosters, invest_facility, coach_candidates,
-    fire_head_coach, hire_head_coach, NIL_SPORTS, resolve_coach_demand
+    fire_head_coach, hire_head_coach, NIL_SPORTS, resolve_coach_demand, negotiate_coach_salary, booster_tick, coach_program_fit
 )
 from postseason import school_postseason_history, latest_champions
 from history import ensure_history_schema, legacy_for_school, NCAA_DI_CHAMPIONSHIP_SPORTS
@@ -20,7 +20,7 @@ from rankings import national_rankings, conference_standings, all_conference_sum
 from scheduling import conference_for_sport
 from scheduling import ensure_schedule_schema, generate_season_schedules, current_season_schedule, negotiate_game, season_key
 
-st.set_page_config(page_title="College AD Simulator V12", page_icon="🏟️", layout="wide")
+st.set_page_config(page_title="College AD Simulator V14", page_icon="🏟️", layout="wide")
 init_db()
 
 if "user_id" not in st.session_state:
@@ -37,17 +37,31 @@ def migrate_game(g):
     ensure_schedule_schema(g["world"])
     generate_season_schedules(g["world"], season_key(g["date"]), g["rng_seed"])
     ensure_history_schema(g["world"])
-    g.setdefault("version", 12)
+    try:
+        booster_tick(g)
+    except Exception:
+        pass
+    g.setdefault("version", 14)
     g.setdefault("news", [])
     g["world"].setdefault("postseason_results", [])
     g["world"].setdefault("postseason_done", [])
     g["world"].setdefault("championships", [])
     g["world"].setdefault("school_postseason", {})
-    for sid in g["world"]["schools"]:
-        g["world"]["school_postseason"].setdefault(sid, [])
+    for sid, s in g["world"]["schools"].items():
+        s.setdefault("season_records", {sport:{"w":0,"l":0} for sport in s.get("records",{})})
+        s.setdefault("career_records", {sport:dict(r) for sport,r in s.get("records",{}).items()})
+        s.setdefault("prestige_history", [])
+        # Existing V13 saves have cumulative records. Rebuild current-season records from results.
+        for sport in s.get("season_records",{}): s["season_records"][sport]={"w":0,"l":0}
+    current_season = season_key(g["date"])
+    for r in g["world"].get("results",[]):
+        if r.get("season") != current_season: continue
+        for sid,outcome in ((r.get("winner"),"w"),(r.get("loser"),"l")):
+            if sid in g["world"]["schools"] and r.get("sport") in g["world"]["schools"][sid].get("season_records",{}):
+                g["world"]["schools"][sid]["season_records"][r["sport"]][outcome]+=1
     return g
 
-st.title("🏟️ College Athletic Director Simulator — V11")
+st.title("🏟️ College Athletic Director Simulator — V14")
 st.caption("Career Mode • Persistent World • Coaches • NIL • Facilities • Postseason • Living Coach Market")
 
 if st.session_state.user_id is None:
@@ -110,6 +124,7 @@ ensure_management_schema(g)
 st.sidebar.markdown(f"### {school_name}")
 st.sidebar.write(f"**Date:** {g['date']}")
 st.sidebar.write(f"**Phase:** {season_phase(g)}")
+st.sidebar.metric("Program Prestige", school.get("prestige",50))
 st.sidebar.metric("Career Reputation", g["career"]["reputation"])
 st.sidebar.progress(g["career"]["job_security"]/100, text=f"Job security: {g['career']['job_security']}%")
 
@@ -121,14 +136,14 @@ tabs = st.tabs([
 with tabs[0]:
     st.header(school_name)
     c1,c2,c3,c4,c5=st.columns(5)
-    c1.metric("Reputation", g["career"]["reputation"])
-    c2.metric("Board Approval", g["career"]["board_approval"])
-    c3.metric("Cash", money(g["finances"]["cash"]))
-    c4.metric("NIL Budget", money(g["finances"]["nil_budget"]))
+    c1.metric("Program Prestige", school.get("prestige",50))
+    c2.metric("Career Reputation", g["career"]["reputation"])
+    c3.metric("Board Approval", g["career"]["board_approval"])
+    c4.metric("Cash", money(g["finances"]["cash"]))
     c5.metric("Booster Funds", money(g["finances"]["booster_funds"]))
-    st.subheader("Program records")
+    st.subheader("Current-season records")
     rows=[]
-    for sport,r in school["records"].items():
+    for sport,r in school.get("season_records",school["records"]).items():
         rows.append({"Sport":sport.replace("_"," ").title(),"W":r["w"],"L":r["l"]})
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
     champs=[x for x in g["world"].get("championships",[]) if x["school"]==g["current_school"]]
@@ -137,6 +152,15 @@ with tabs[0]:
         st.dataframe(pd.DataFrame(champs), use_container_width=True, hide_index=True)
     st.subheader("Board goals")
     st.json(school["goals"])
+    if school.get("prestige_history"):
+        st.subheader("Prestige progression")
+        ph=pd.DataFrame(school["prestige_history"])
+        st.line_chart(ph.set_index("season")["new"])
+    if g["finances"].get("financial_history"):
+        st.subheader("Year-over-year finances")
+        fh=pd.DataFrame(g["finances"]["financial_history"]).set_index("season")
+        st.line_chart(fh[["revenue","expenses","cash"]])
+        st.bar_chart(fh[["revenue","expenses","nil_budget","booster_funds"]])
     st.subheader("Recent news")
     for n in g["news"][:8]: st.write("•", n)
     st.divider()
@@ -147,7 +171,7 @@ with tabs[0]:
     if c.button("Advance 1 month"): advance_days(g,30); st.rerun()
     if d.button("Simulate season", type="primary"):
         simulate_to_season_end(g); st.rerun()
-    st.caption("Simulate season runs the rest of the current academic year, plays the saved schedules and postseason, completes the July 31 season review, and generates your next job offers.")
+    st.caption("Simulate season runs the rest of the current academic year, plays the saved schedules and postseason, completes the July 31 season review, updates prestige/boosters/finances, resets season records, and generates your next job offers.")
 
 with tabs[1]:
     st.header("2026–27 Calendar")
@@ -161,14 +185,22 @@ with tabs[2]:
         cid=school["coaches"].get(sport)
         coach=g["world"]["coaches"].get(cid) if cid else None
         with st.expander(sport.replace("_"," ").title(), expanded=(sport in ("football","men_basketball"))):
-            r=school["records"][sport]
-            st.write(f"**Record:** {r['w']}-{r['l']}")
+            r=school.get("season_records",school["records"])[sport]
+            st.write(f"**Current-season Record:** {r['w']}-{r['l']}")
+            cr=school.get("career_records",school["records"])[sport]
+            st.caption(f"All-time program record: {cr['w']}-{cr['l']}")
             if coach:
                 st.write(f"**Head Coach:** {coach['name']}")
                 st.write(f"**Overall:** {coach['overall']} • **Recruiting:** {coach['recruiting']} • **Development:** {coach['development']}")
+                fit=coach.get("program_fit",coach_program_fit(g,coach,sport,school))
                 st.write(f"**Personality:** {coach['personality']} • **Strength:** {coach['trait']} • **Contract:** {coach.get('contract_years',1)} years")
+                st.write(f"**Salary:** {money(coach.get('salary',250_000 + coach['overall']*65_000))} / year • **Program fit:** {fit}/100")
                 sat=coach.get("satisfaction",72)
                 st.progress(max(0,min(100,sat))/100, text=f"Coach satisfaction: {sat}/100")
+                salary_now=int(coach.get("salary",250_000 + coach["overall"]*65_000))
+                salary_offer=st.number_input("Coach salary offer", min_value=100_000, max_value=8_000_000, value=salary_now, step=25_000, key=f"salary_{sport}")
+                if st.button("Renegotiate salary", key=f"salary_btn_{sport}"):
+                    ok,msg=negotiate_coach_salary(g,sport,salary_offer); (st.success if ok else st.error)(msg); st.rerun()
                 demand=coach.get("demand")
                 if demand and demand.get("status")=="Pending":
                     st.warning(f"**{coach['name']} is demanding ${int(demand['requested_nil']):,.0f} more NIL** before {demand['deadline']}.\n\n{demand['message']}")
@@ -193,7 +225,7 @@ with tabs[2]:
                     cc[1].write(f"OVR\n**{cand['overall']}**")
                     cc[2].write(f"Recruit\n**{cand['recruiting']}**")
                     cc[3].write(f"Dev\n**{cand['development']}**")
-                    cc[4].write(f"Salary\n**{money(cand['salary'])}**")
+                    cc[4].write(f"Salary\n**{money(cand['salary'])}**\nFit **{cand.get('fit',0)}/100**")
                     if cc[4].button("Hire", key=f"hire_{sport}_{cand['id']}"):
                         ok,msg=hire_head_coach(g,sport,cand["id"])
                         (st.success if ok else st.error)(msg)
@@ -206,6 +238,7 @@ with tabs[3]:
     a.metric("Cash",money(f["cash"]))
     b.metric("Unallocated NIL",money(available_nil(g)))
     c.metric("Unallocated Booster Funds",money(available_boosters(g)))
+    st.metric("Booster Confidence", f"{school.get('booster_confidence',68)}/100")
 
     st.subheader("NIL allocation")
     st.write("Move your NIL budget toward sports where recruiting and player retention matter most.")

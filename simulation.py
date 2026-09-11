@@ -3,7 +3,7 @@ import random
 from career import apply_season_review, job_market_tick
 from world import simulate_week
 from postseason import process_postseason
-from management import management_tick, ensure_management_schema, coach_market_tick
+from management import management_tick, ensure_management_schema, coach_market_tick, booster_tick
 from scheduling import season_key, generate_season_schedules, scheduled_games_on
 
 def parse_date(x): return date.fromisoformat(x)
@@ -55,6 +55,8 @@ def advance_days(game, days):
 
         management_tick(game)
         coach_market_tick(game)
+        if d.day == 1:
+            booster_tick(game)
         process_postseason(game)
 
         # The AD job market changes throughout the year: firings, departures and AI hires.

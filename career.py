@@ -200,30 +200,71 @@ def job_market_tick(game, force=False):
     _ai_fill_openings(game, rng)
 
 
+def _season_record(world, sid, season, sport):
+    return _school_season_record(world, sid, season, sport)
+
+def update_program_prestige(game, season):
+    """Move program prestige on a 0-100 ladder using recent results and investments."""
+    world=game["world"]; s=world["schools"][game["current_school"]]
+    old=float(s.get("prestige",50))
+    scores=[]
+    for sport,wt in (("football",1.0),("men_basketball",1.0),("women_basketball",.65)):
+        w,l=_season_record(world,game["current_school"],season,sport); gp=w+l
+        if gp: scores.append(((w-l)/gp*100)*wt)
+    performance=sum(scores)/sum((1.0,1.0,.65)[i] for i in range(len(scores))) if scores else 0
+    post=world.get("school_postseason",{}).get(game["current_school"],[])
+    season_post=[x for x in post if str(x.get("season","")).startswith(season[:4])]
+    bonus=0
+    rounds={"Conference Championship":2,"Conference Tournament":2,"Opening Round":1,"First Round":2,"Second Round":3,"Sweet 16":5,"Elite Eight":8,"Final Four":12,"National Championship":18,"Bowl Game":2,"Quarterfinal":5,"Semifinal":9}
+    for x in season_post:
+        if x.get("result")=="W": bonus += rounds.get(x.get("round"),0)
+    bonus=min(20,bonus)
+    facilities=(s.get("facilities",50)-50)*.10
+    nil=sum(s.get("nil_allocations",{}).values())/1_000_000
+    nil_bonus=min(6,nil*.35)
+    target=old + performance*.10 + bonus*.35 + facilities*.12 + nil_bonus*.15
+    # Strong programs require more sustained success to move, while weak programs can recover.
+    delta=max(-3.5,min(5.0,target-old))
+    s["prestige"]=int(max(0,min(100,round(old+delta))))
+    s.setdefault("prestige_history",[]).append({"season":season,"old":round(old,1),"new":s["prestige"],"change":round(delta,1),"performance":round(performance,1),"postseason_bonus":bonus})
+    s["prestige_history"]=s["prestige_history"][-20:]
+    return delta
+
+def _snapshot_finances(game, season):
+    f=game["finances"]; s=game["world"]["schools"][game["current_school"]]
+    f.setdefault("financial_history",[])
+    f["financial_history"].append({"season":season,"revenue":int(f.get("revenue",0)),"expenses":int(f.get("expenses",0)),"net":int(f.get("revenue",0)-f.get("expenses",0)),"cash":int(f.get("cash",0)),"nil_budget":int(f.get("nil_budget",0)),"booster_funds":int(f.get("booster_funds",0)),"prestige":int(s.get("prestige",50))})
+    f["financial_history"]=f["financial_history"][-12:]
+
+def reset_season_records(game):
+    world=game["world"]
+    for s in world.get("schools",{}).values():
+        for sport in s.get("season_records",{}): s["season_records"][sport]={"w":0,"l":0}
+
 def career_reputation(game):
     ensure_career_schema(game)
     s = game["world"]["schools"][game["current_school"]]
     rep = game["career"]["reputation"]
     for sport in ("football", "men_basketball", "women_basketball"):
-        r = s["records"][sport]
-        rep += (r["w"] - r["l"]) * 0.18
-    rep += (s["facilities"] - 50) * 0.08
-    rep += game["career"].get("career_wins", 0) * 0.03
+        r = s.get("season_records",{}).get(sport,{"w":0,"l":0})
+        rep += (r["w"] - r["l"]) * 0.35
+    rep += (s.get("prestige",50) - 50) * 0.10
+    rep += (s["facilities"] - 50) * 0.05
+    rep += game["career"].get("career_wins", 0) * 0.02
     return max(20, min(99, round(rep)))
-
 
 def evaluate_board(game):
     s = game["world"]["schools"][game["current_school"]]
-    football = s["records"]["football"]
-    basketball = s["records"]["men_basketball"]
+    football = s.get("season_records",{}).get("football", {"w":0,"l":0})
+    basketball = s.get("season_records",{}).get("men_basketball", {"w":0,"l":0})
     goals = s["goals"]
     score = 50
     score += (football["w"] - goals["football_wins"]) * 5
     score += (basketball["w"] - goals["basketball_wins"]) * 2
-    score += (s["facilities"] - 50) * .4
-    score += game["career"].get("fundraising", 0) / max(1, goals["fundraising"]) * 10
+    score += (s.get("prestige",50) - 50) * .25
+    score += (s["facilities"] - 50) * .35
+    score += min(15, game["career"].get("fundraising", 0) / max(1, goals["fundraising"]) * 8)
     return max(0, min(100, round(score)))
-
 
 def apply_season_review(game):
     ensure_career_schema(game)
@@ -234,51 +275,35 @@ def apply_season_review(game):
     season_post = [x for x in postseason if str(x.get("season","")).startswith(str(season_start))]
     post_wins = sum(1 for x in season_post if x.get("result") == "W")
     post_losses = sum(1 for x in season_post if x.get("result") == "L")
-    reg_wins = 0
-    reg_losses = 0
-    for r in game["world"].get("results", []):
-        if r.get("season") != season:
-            continue
-        if r.get("winner") == game["current_school"]: reg_wins += 1
-        if r.get("loser") == game["current_school"]: reg_losses += 1
+    reg_wins = sum(_school_season_record(game["world"],game["current_school"],season,s)[0] for s in ("football","men_basketball","women_basketball"))
+    reg_losses = sum(_school_season_record(game["world"],game["current_school"],season,s)[1] for s in ("football","men_basketball","women_basketball"))
     game["career"]["career_wins"] += reg_wins + post_wins
     game["career"]["career_losses"] += reg_losses + post_losses
+    prestige_delta=update_program_prestige(game,season)
     board = evaluate_board(game)
-    if post_wins:
-        board = min(100, board + post_wins * 2)
-    if any(x.get("round") == "National Championship" and x.get("result") == "W" for x in season_post):
-        board = min(100, board + 12)
-
-    game["career"]["board_approval"] = board
-    if board < 30:
-        game["career"]["job_security"] = max(0, game["career"]["job_security"] - 25)
-    elif board < 50:
-        game["career"]["job_security"] = max(0, game["career"]["job_security"] - 10)
-    else:
-        game["career"]["job_security"] = min(100, game["career"]["job_security"] + 8)
+    board += post_wins * 2
+    if any(x.get("round") == "National Championship" and x.get("result") == "W" for x in season_post): board += 12
+    game["career"]["board_approval"] = max(0,min(100,round(board)))
+    if board < 30: game["career"]["job_security"] = max(0, game["career"]["job_security"] - 25)
+    elif board < 50: game["career"]["job_security"] = max(0, game["career"]["job_security"] - 10)
+    else: game["career"]["job_security"] = min(100, game["career"]["job_security"] + 8)
     game["career"]["reputation"] = career_reputation(game)
     game["career"]["seasons"] += 1
-
-    # A player with critically low security can be dismissed at the annual checkpoint.
-    if game["career"]["job_security"] <= 0:
-        game["career"]["job_security"] = 40
-        game["career"]["board_approval"] = 55
-        game["news"].insert(0, f"Your board fired you at {s['name']}. You remain in the AD job market.")
-        open_ad_job(game, game["current_school"], "Your board dismissed you", random.Random(game["rng_seed"] + game["career"]["seasons"]))
-
+    try:
+        from management import booster_tick
+        booster_tick(game)
+    except Exception: pass
+    _snapshot_finances(game,season)
     # Refresh the living market first, then generate the player's five choices.
     job_market_tick(game, force=True)
     offers = get_job_market(game, force_refresh=True)
     game["career"]["job_offers"] = len(offers)
     game["career"]["job_offer_pool"] = offers
-    game["history"].append({
-        "season": season,
-        "school": s["name"],
-        "board_approval": board,
-        "reputation": game["career"]["reputation"]
-    })
-    return board
-
+    game["history"].append({"season": season,"school": s["name"],"board_approval": game["career"]["board_approval"],"reputation": game["career"]["reputation"],"prestige": s["prestige"],"prestige_change": round(prestige_delta,1)})
+    reset_season_records(game)
+    # Reset annual cash-flow counters while preserving financial history.
+    game["finances"]["revenue"]=0; game["finances"]["expenses"]=0
+    return game["career"]["board_approval"]
 
 def get_job_market(game, force_refresh=False):
     ensure_career_schema(game)

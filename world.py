@@ -20,11 +20,13 @@ def new_world(schools, seed):
         world["schools"][sid] = {
             "name": s["name"], "conference": s.get("conference", "Independent"),
             "subdivision": s.get("subdivision", "DI"), "prestige": p,
-            "budget": max(18_000_000, p * 2_100_000),
+            "budget": max(22_000_000, int(p * rng.uniform(650_000, 1_900_000) + rng.randint(4_000_000, 18_000_000))),
             "facilities": max(25, min(95, p + rng.randint(-15, 15))),
             "academic": rng.randint(55, 95),
             "attendance": max(5000, int(p * rng.uniform(300, 700))),
             "records": {sport: {"w": 0, "l": 0} for sport in SPORTS},
+            "season_records": {sport: {"w": 0, "l": 0} for sport in SPORTS},
+            "career_records": {sport: {"w": 0, "l": 0} for sport in SPORTS},
             "nil_allocations": {sport: 0 for sport in SPORTS},
             "facility_levels": {sport: max(1, min(10, round((p + rng.randint(-10,10))/10))) for sport in SPORTS},
             "facility_investments": [], "coach_history": [],
@@ -64,7 +66,9 @@ def school_strength(world, sid, sport):
     coach = world["coaches"].get(cid, {})
     nil = s.get("nil_allocations", {}).get(sport, 0)
     nil_effect = min(12, (nil / 1_000_000) * 1.2)
-    return s["prestige"] * 0.58 + s["facilities"] * 0.14 + coach.get("overall", 50) * 0.20 + nil_effect
+    fit = coach.get("program_fit", 60)
+    morale = coach.get("satisfaction", 70)
+    return s["prestige"] * 0.55 + s["facilities"] * 0.14 + coach.get("overall", 50) * 0.20 + nil_effect + (fit-50)*0.06 + (morale-50)*0.04
 
 def play_game(world, a, b, sport, rng, date):
     sa = school_strength(world, a, sport)
@@ -73,8 +77,9 @@ def play_game(world, a, b, sport, rng, date):
     pa = 1 / (1 + 10 ** (-(sa + 3 - sb) / 18))
     win_a = rng.random() < pa
     winner, loser = (a, b) if win_a else (b, a)
-    world["schools"][winner]["records"][sport]["w"] += 1
-    world["schools"][loser]["records"][sport]["l"] += 1
+    for key in ("records", "season_records", "career_records"):
+        world["schools"][winner][key][sport]["w"] += 1
+        world["schools"][loser][key][sport]["l"] += 1
     world["results"].append({
         "date": date, "sport": sport, "home": a, "away": b,
         "winner": winner, "loser": loser
